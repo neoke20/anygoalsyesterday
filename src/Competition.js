@@ -8,7 +8,7 @@ const competitionCode = url.match(/([A-Z])\w+/);
 
 const Competition = () => {
   $.ajax({
-    headers: { "X-Auth-Token": `${process.env.REACT_APP_API_KEY}` },
+    headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
     url: `https://api.football-data.org/v2/competitions/${competitionCode[0]}/matches?season=2021`,
     dataType: "json",
     type: "GET",
