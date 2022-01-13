@@ -10,8 +10,8 @@ function App() {
         <h1 className="text-center">Any Goals?</h1>
       </Link>
       <Routes>
-        <Route path="/competition/:id" element={<Competition />} />
-        <Route path="/" element={<Home />} />
+        <Route path="%PUBLIC_URL%/competition/:id" element={<Competition />} />
+        <Route path="%PUBLIC_URL%/" element={<Home />} />
       </Routes>
     </Router>
   );
