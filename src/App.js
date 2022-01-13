@@ -10,8 +10,8 @@ function App() {
         <h1 className="text-center">Any Goals?</h1>
       </Link>
       <Routes>
-        <Route path="https://anygoalsyesterday.netlify.app//competition/:id" element={<Competition />} />
-        <Route path="https://anygoalsyesterday.netlify.app//" element={<Home />} />
+        <Route path="https://anygoalsyesterday.netlify.app/competition/:id" element={<Competition />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </Router>
   );
