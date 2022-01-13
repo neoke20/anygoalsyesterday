@@ -81,7 +81,7 @@ const Competition = () => {
 
   return (
     <div>
-      <h2 className="text-center pt-4">
+      <h2 className="text-center pt-4 text-white">
         It is currently match day <span id="currentMatchday"></span>
       </h2>
       <div className="text-center d-none">
@@ -90,7 +90,7 @@ const Competition = () => {
           <select id="matchdays"></select>
         </label>
       </div>
-      <p className="text-center">
+      <p className="text-center text-white">
         You are checking the results of the{" "}
         <strong>
           <span id="currentCompetition"> </span>
