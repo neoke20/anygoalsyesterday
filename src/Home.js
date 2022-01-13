@@ -14,7 +14,7 @@ const TARGETCOMPETITIONS = [
 
 const Home = () => {
   $.ajax({
-    headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
+    headers: { "X-Auth-Token": `${process.env.REACT_APP_API_KEY}` },
     url: `https://api.football-data.org/v2/competitions`,
     dataType: "json",
     type: "GET",
