@@ -30,7 +30,7 @@ h1 {
   font-family: $h1;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
   &:hover {
-    // color: darken($primary-color, 15%);
+    color: red;
     text-shadow: 0 0 6px rgba(240, 240, 240, 0.5);
   }
 }
