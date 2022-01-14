@@ -148,3 +148,17 @@ h1 {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+// Override accordion
+.accordion-button:not(.collapsed) {
+  background-color: $black !important;
+  color: white;
+}
+.accordion-body {
+  background-color: $black;
+  color: white;
+}
+.accordion-button {
+  background-color: $black;
+  color: white;
+  border: 1px solid white;
+}
