@@ -162,3 +162,26 @@ h1 {
   color: white;
   border: 1px solid white;
 }
+// Footer
+#footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: $black;
+  color: $primary-color;
+  i {
+    color: $primary-color;
+    font-size: 20px;
+    &:hover {
+      color: darken($primary-color, 10%);
+    }
+  }
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    i {
+      font-size: 30px;
+      padding: 0 12px;
+    }
+  }
+}
