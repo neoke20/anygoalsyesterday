@@ -15,10 +15,10 @@ const Competition = () => {
   }).done(function (response) {
     const matchesList = response.matches;
     // Which Matchday is it?
-    const matchDay = matchesList[0].season.currentMatchday;
+    let matchDay = matchesList[0].season.currentMatchday;
     const allMatchDays = [...Array(matchDay + 1).keys()];
     const currentMatchday = matchesList.filter((match) =>
-      match.matchday === match.season.currentMatchday ? match : null
+      match.matchday === matchDay ? match : null
     );
 
     const results = document.querySelector("#results");
