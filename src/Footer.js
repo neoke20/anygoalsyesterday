@@ -1,6 +1,7 @@
 const Footer = () => {
+  const today = new Date();
   return (<div>
-    <h1>Test</h1>
+    <p>&copy; {today.getFullYear()} Kevin Konczak</p>
   </div>)
 };
 
