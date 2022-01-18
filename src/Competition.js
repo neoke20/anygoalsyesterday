@@ -10,9 +10,8 @@ const url = window.location.href;
 const competitionCode = url.match(/([A-Z])\w+/);
 
 const Competition = () => {
-  const [matchDay, setMatchDay] = useState(1);
-  const [year, setYear] = useState("");
-  const [allMatchDays, setAllMatchDays] = useState("");
+  const [matchDay, updateMatchDay] = useState("1");
+  const [allMatchDays, updateAllMatchDays] = useState([]);
 
   useEffect(() => {
     requestMatches();
@@ -24,16 +23,19 @@ const Competition = () => {
       headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
     };
     const res = await fetch(
-      `https://api.football-data.org/v2/competitions/${competitionCode[0]}/matches?season=${year}&matchday=${matchDay}`,
+      `https://api.football-data.org/v2/competitions/${
+        competitionCode[0]
+      }/matches?season=2021&matchday=${parseInt(matchDay)}`,
       requestOptions
     );
+    console.log(res);
     const json = await res.json();
     console.log(json);
     const getMatchDay = json.matches[0].season.currentMatchday;
     console.log(getMatchDay);
-    setYear(json.matches[0].season.startDate.substring(0, 4));
-    setAllMatchDays([...Array(matchDay + 1).keys()]);
-    setMatchDay(getMatchDay);
+    const allDays = [...Array(getMatchDay + 1).keys()];
+    console.log(allDays.shift());
+    updateAllMatchDays(allDays);
     const results = document.querySelector("#results");
     json.matches.forEach((match) => {
       const teamNames = `<li>${match.homeTeam.name}</li>`;
@@ -44,19 +46,24 @@ const Competition = () => {
     <div>
       <h1>Test</h1>
       <div className="text-center">
-        <label htmlFor="matchdays">
-          Select another match day:
-          <select
-            id="matchday"
-            value={matchDay}
-            onChange={(e) => setMatchDay(e.target.value)}
-            onBlur={(e) => setMatchDay(e.target.value)}
-          >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-        </label>
+        <form>
+          <label htmlFor="matchdays">
+            Select another match day:
+            <select
+              id="matchday"
+              value={matchDay}
+              onChange={(e) => updateMatchDay(e.target.value)}
+              onBlur={(e) => updateMatchDay(e.target.value)}
+            >
+              {allMatchDays.map((day) => (
+                <option key={day} value={day}>
+                  {day}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button>Submit</button>
+        </form>
       </div>
       <div>
         <ul id="results"></ul>
