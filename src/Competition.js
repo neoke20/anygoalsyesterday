@@ -10,11 +10,13 @@ const url = window.location.href;
 const competitionCode = url.match(/([A-Z])\w+/);
 
 const Competition = () => {
-  const [matches, setMatches] = useState([]);
+  const [matchDay, setMatchDay] = useState(1);
+  const [year, setYear] = useState("");
+  const [allMatchDays, setAllMatchDays] = useState("");
 
   useEffect(() => {
     requestMatches();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function requestMatches() {
     const requestOptions = {
@@ -22,16 +24,43 @@ const Competition = () => {
       headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
     };
     const res = await fetch(
-      `https://api.football-data.org/v2/competitions/${competitionCode[0]}/matches?season=2021`,
+      `https://api.football-data.org/v2/competitions/${competitionCode[0]}/matches?season=${year}&matchday=${matchDay}`,
       requestOptions
     );
     const json = await res.json();
     console.log(json);
-    setMatches(json.matches);
+    const getMatchDay = json.matches[0].season.currentMatchday;
+    console.log(getMatchDay);
+    setYear(json.matches[0].season.startDate.substring(0, 4));
+    setAllMatchDays([...Array(matchDay + 1).keys()]);
+    setMatchDay(getMatchDay);
+    const results = document.querySelector("#results");
+    json.matches.forEach((match) => {
+      const teamNames = `<li>${match.homeTeam.name}</li>`;
+      results.insertAdjacentHTML("beforeend", teamNames);
+    });
   }
   return (
     <div>
       <h1>Test</h1>
+      <div className="text-center">
+        <label htmlFor="matchdays">
+          Select another match day:
+          <select
+            id="matchday"
+            value={matchDay}
+            onChange={(e) => setMatchDay(e.target.value)}
+            onBlur={(e) => setMatchDay(e.target.value)}
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <ul id="results"></ul>
+      </div>
     </div>
   );
 };
@@ -115,12 +144,12 @@ export default Competition;
 //     <h2 className="text-center pt-4 text-white">
 //       It is currently match day <span id="currentMatchday"></span>
 //     </h2>
-//     <div className="text-center d-none">
-//       <label htmlFor="matchdays">
-//         Select another match day:
-//         <select id="matchdays"></select>
-//       </label>
-//     </div>
+// <div className="text-center d-none">
+//   <label htmlFor="matchdays">
+//     Select another match day:
+//     <select id="matchdays"></select>
+//   </label>
+// </div>
 //     <p className="text-center text-white">
 //       You are checking the results of the{" "}
 //       <strong>
