@@ -34,7 +34,7 @@ const Competition = () => {
     const getMatchDay = json.matches[0].season.currentMatchday;
     console.log(getMatchDay);
     const allDays = [...Array(getMatchDay + 1).keys()];
-    console.log(allDays.shift());
+    allDays.shift();
     updateAllMatchDays(allDays);
     const results = document.querySelector("#results");
     json.matches.forEach((match) => {
