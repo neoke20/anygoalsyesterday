@@ -10,7 +10,8 @@ const url = window.location.href;
 const competitionCode = url.match(/([A-Z])\w+/);
 
 const Competition = () => {
-  const [matchDay, updateMatchDay] = useState("1");
+  const [year, setYear] = useState("");
+  const [matchDay, updateMatchDay] = useState("");
   const [allMatchDays, updateAllMatchDays] = useState([]);
 
   useEffect(() => {
@@ -23,16 +24,15 @@ const Competition = () => {
       headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
     };
     const res = await fetch(
-      `https://api.football-data.org/v2/competitions/${
-        competitionCode[0]
-      }/matches?season=2021&matchday=${parseInt(matchDay)}`,
+      `https://api.football-data.org/v2/competitions/${competitionCode[0]}/matches?season=${year}&matchday=${matchDay}`,
       requestOptions
     );
     console.log(res);
     const json = await res.json();
     console.log(json);
     const getMatchDay = json.matches[0].season.currentMatchday;
-    console.log(getMatchDay);
+    const getCurrentSeason = json.matches[0].season.startDate.substring(0, 4);
+    setYear(getCurrentSeason);
     const allDays = [...Array(getMatchDay + 1).keys()];
     allDays.shift();
     updateAllMatchDays(allDays);
@@ -62,7 +62,7 @@ const Competition = () => {
               ))}
             </select>
           </label>
-          <button>Submit</button>
+          <button type="button">Submit</button>
         </form>
       </div>
       <div>
