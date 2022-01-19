@@ -1,6 +1,3 @@
-// import $ from "jquery";
-// import { Link } from "react-router-dom";
-
 import { useEffect } from "react";
 import { useState } from "react/cjs/react.development";
 
@@ -11,7 +8,7 @@ const competitionCode = url.match(/([A-Z])\w+/);
 
 const Competition = () => {
   const [year, setYear] = useState("");
-  const [matchDay, updateMatchDay] = useState("");
+  const [matchDay, updateMatchDay] = useState("1");
   const [allMatchDays, updateAllMatchDays] = useState([]);
 
   useEffect(() => {
@@ -30,10 +27,14 @@ const Competition = () => {
     console.log(res);
     const json = await res.json();
     console.log(json);
+    // Gets the latest match day
     const getMatchDay = json.matches[0].season.currentMatchday;
+    // Isolate the year the latest season started at
     const getCurrentSeason = json.matches[0].season.startDate.substring(0, 4);
     setYear(getCurrentSeason);
+    // Creates an array of all the match days until today
     const allDays = [...Array(getMatchDay + 1).keys()];
+    // Remove the 0 from the array
     allDays.shift();
     updateAllMatchDays(allDays);
     const results = document.querySelector("#results");
@@ -46,7 +47,12 @@ const Competition = () => {
     <div>
       <h1>Test</h1>
       <div className="text-center">
-        <form>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            requestMatches();
+          }}
+        >
           <label htmlFor="matchdays">
             Select another match day:
             <select
@@ -62,7 +68,7 @@ const Competition = () => {
               ))}
             </select>
           </label>
-          <button type="button">Submit</button>
+          <button>Submit</button>
         </form>
       </div>
       <div>
