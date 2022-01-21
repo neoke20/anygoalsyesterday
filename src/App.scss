@@ -51,7 +51,7 @@ h1 {
 .competition-card {
   background-size: cover;
   background-position: center;
-  height: 130px;
+  height: 230px;
   display: flex;
   padding: 8px;
   justify-content: center;
@@ -144,31 +144,41 @@ h1 {
 }
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
   // Smallest device
   @media (min-width: 100px) and (max-width: 575px) {
     grid-template-columns: 1fr;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   // Small devices (landscape phones, 576px and up)
   @media (min-width: 576px) {
     grid-template-columns: 1fr;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   // Medium devices (tablets, 768px and up)
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
+    margin-left: 50px;
+    margin-right: 50px;
   }
 
   // Large devices (desktops, 992px and up)
   @media (min-width: 992px) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 50px;
+    margin-right: 50px;
   }
 
   // Extra large devices (large desktops, 1200px and up)
   @media (min-width: 1200px) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 50px;
+    margin-right: 50px;
   }
 }
 // Override accordion
