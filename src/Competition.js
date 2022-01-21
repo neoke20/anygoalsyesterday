@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react/cjs/react.development";
+import { Link } from "react-router-dom";
 
 // Get the url
 const url = window.location.href;
@@ -42,6 +43,11 @@ const Competition = () => {
   }
   return (
     <div>
+      <Link to="/">
+        <button type="button" className="btn btn-light return">
+          Return
+        </button>
+      </Link>
       <div className="text-center">
         <form
           onSubmit={(e) => {
@@ -132,6 +138,13 @@ const Competition = () => {
       </div>
       <div>
         <ul id="results"></ul>
+      </div>
+      <div className="mb-5">
+        <Link to="/">
+          <button type="button" className="btn btn-light return">
+            Return
+          </button>
+        </Link>
       </div>
     </div>
   );
@@ -229,11 +242,11 @@ export default Competition;
 //       </strong>
 //       competition.
 //     </p>
-//     <Link to="/">
-//       <button type="button" className="btn btn-light return">
-//         Return
-//       </button>
-//     </Link>
+// <Link to="/">
+//   <button type="button" className="btn btn-light return">
+//     Return
+//   </button>
+// </Link>
 //     <div id="results"></div>
 //     <Link to="/">
 //       <button type="button" className="btn btn-light return mb-4">
