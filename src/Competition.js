@@ -75,6 +75,9 @@ const Competition = () => {
                   <h3>{match.homeTeam.name}</h3>
                   <strong>VS</strong>
                   <h3>{match.awayTeam.name}</h3>
+                </div>
+                <div className="text-center match-result">
+                  <h4 className="pt-3">Were there any goals:</h4>
                   <h5>Yes</h5>
                 </div>
               </div>
@@ -84,6 +87,9 @@ const Competition = () => {
                   <h3>{match.homeTeam.name}</h3>
                   <strong>VS</strong>
                   <h3>{match.awayTeam.name}</h3>
+                </div>
+                <div className="text-center match-result">
+                  <h4 className="pt-3">Were there any goals:</h4>
                   <h5 style={{ color: "#FF4081" }}>No</h5>
                 </div>
               </div>
@@ -94,6 +100,9 @@ const Competition = () => {
                 <h3>{match.homeTeam.name}</h3>
                 <strong>VS</strong>
                 <h3>{match.awayTeam.name}</h3>
+              </div>
+              <div className="text-center match-result">
+                <h4 className="pt-3">Were there any goals:</h4>
                 <h5 style={{ textdecoration: "line-through" }}>Cancelled</h5>
               </div>
             </div>
@@ -103,6 +112,9 @@ const Competition = () => {
                 <h3>{match.homeTeam.name}</h3>
                 <strong>VS</strong>
                 <h3>{match.awayTeam.name}</h3>
+              </div>
+              <div className="text-center match-result">
+                <h4 className="pt-3">Were there any goals:</h4>
                 <h5 style={{ textdecoration: "line-through" }}>Scheduled</h5>
               </div>
             </div>
