@@ -3,14 +3,14 @@ import { useState } from "react/cjs/react.development";
 
 // Get the url
 const url = window.location.href;
-// Isolate the code from the URL to place in the Api fetch
+// Isolate the competition code from the URL to place in the Api fetch
 const competitionCode = url.match(/([A-Z])\w+/);
 
 const Competition = () => {
   const [year, setYear] = useState("");
   const [matchDay, updateMatchDay] = useState("1");
   const [allMatchDays, updateAllMatchDays] = useState([]);
-  const [teams, setTeams] = useState([]);
+  const [matches, setMatches] = useState([]);
 
   useEffect(() => {
     requestMatches();
@@ -27,7 +27,7 @@ const Competition = () => {
     );
     console.log(res);
     const json = await res.json();
-    setTeams(json.matches);
+    setMatches(json.matches);
     console.log(json.matches);
     // Gets the latest match day
     const getMatchDay = json.matches[0].season.currentMatchday;
@@ -39,11 +39,6 @@ const Competition = () => {
     // Remove the 0 from the array
     allDays.shift();
     updateAllMatchDays(allDays);
-    // const results = document.querySelector("#results");
-    // json.matches.forEach((match) => {
-    //   const teamNames = `<li>${match.homeTeam.name}</li>`;
-    //   results.insertAdjacentHTML("beforeend", teamNames);
-    // });
   }
   return (
     <div>
@@ -71,15 +66,27 @@ const Competition = () => {
           </label>
           <button>Submit</button>
         </form>
-        {teams.map((team) => (
-          <div className="match-card" key={team.id}>
-            <div className="flex-grow-1 team-names">
-              <h3>{team.homeTeam.name}</h3>
-              <strong>VS</strong>
-              <h3>{team.awayTeam.name}</h3>
+        {matches.map((match) =>
+          match.score.fullTime.awayTeam + match.score.fullTime.homeTeam > 0 ? (
+            <div className="match-card" key={match.id}>
+              <div className="flex-grow-1 team-names">
+                <h3>{match.homeTeam.name}</h3>
+                <strong>VS</strong>
+                <h3>{match.awayTeam.name}</h3>
+                <p>Yes</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ) : (
+            <div className="match-card" key={match.id}>
+              <div className="flex-grow-1 team-names">
+                <h3>{match.homeTeam.name}</h3>
+                <strong>VS</strong>
+                <h3>{match.awayTeam.name}</h3>
+                <p>No</p>
+              </div>
+            </div>
+          )
+        )}
       </div>
       <div>
         <ul id="results"></ul>
@@ -134,21 +141,21 @@ export default Competition;
 //       matchHour +
 //       ":" +
 //       matchMinutes;
-//     const goals =
-//       // Check for match status and display the right info depending
-//       match.status === "FINISHED"
-//         ? match.score.fullTime.homeTeam + match.score.fullTime.awayTeam > 0
-//           ? `<h5>Yes</h5>`
-//           : `<h5 style="color: #FF4081;">No</h5>`
-//         : match.status === "CANCELLED"
-//         ? `<h5 style="text-decoration: line-through;">Cancelled</h5>`
-//         : match.status === "SCHEDULED"
-//         ? `<h5 style="line-height: 2rem;"><mark>SCHEDULED</mark></h5><div class="schedule-date">${fullDate} your timezone</div>`
-//         : `<h5"><mark>${match.status
-//             .replace("_", " ")
-//             .toUpperCase()}</mark></h5>`;
-//     const teamNames = `<div class="match-card"><div class="flex-grow-1 team-names"><h3>${match.homeTeam.name}</h3> <strong>VS</strong> <h3>${match.awayTeam.name}</h3></div> <div class="text-center match-result"><h4 class="pt-3">Were there any goals:</h4><div class="results">${goals}</div></div></div>`;
-//     results.insertAdjacentHTML("beforeend", teamNames);
+// const goals =
+//   // Check for match status and display the right info depending
+//   match.status === "FINISHED"
+//     ? match.score.fullTime.homeTeam + match.score.fullTime.awayTeam > 0
+//       ? `<h5>Yes</h5>`
+//       : `<h5 style="color: #FF4081;">No</h5>`
+//     : match.status === "CANCELLED"
+//     ? `<h5 style="text-decoration: line-through;">Cancelled</h5>`
+//     : match.status === "SCHEDULED"
+//     ? `<h5 style="line-height: 2rem;"><mark>SCHEDULED</mark></h5><div class="schedule-date">${fullDate} your timezone</div>`
+//     : `<h5"><mark>${match.status
+//         .replace("_", " ")
+//         .toUpperCase()}</mark></h5>`;
+// const teamNames = `<div class="match-card"><div class="flex-grow-1 team-names"><h3>${match.homeTeam.name}</h3> <strong>VS</strong> <h3>${match.awayTeam.name}</h3></div> <div class="text-center match-result"><h4 class="pt-3">Were there any goals:</h4><div class="results">${goals}</div></div></div>`;
+// results.insertAdjacentHTML("beforeend", teamNames);
 //   });
 //   // Will insert the match day number in the h2
 //   selectorMatchday.insertAdjacentText("afterbegin", matchDay);
