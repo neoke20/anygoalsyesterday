@@ -118,6 +118,10 @@ h1 {
   .results {
     text-align: right;
   }
+  .schedule-date {
+    text-align: right;
+    font-size: large;
+  }
   @media (max-width: 800px) {
     flex-direction: column;
     margin: 28px 12px;
@@ -130,10 +134,9 @@ h1 {
     .results {
       text-align: center;
     }
-  }
-  .schedule-date {
-    text-align: right;
-    font-size: large;
+    .schedule-date {
+      text-align: center;
+    }
   }
 }
 .team-names {
@@ -141,6 +144,9 @@ h1 {
 }
 .return {
   margin-left: 50px;
+  @media (max-width: 800px) {
+    margin: 0 0 10px 10px;
+  }
 }
 .cards {
   display: grid;
