@@ -12,6 +12,17 @@ $pink: #e91e63;
 body {
   height: 100vh;
 }
+button#submit {
+  margin-left: 10px;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid black;
+  &:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+  }
+}
 h1 {
   padding: 20px 0 0 0;
   color: $primary-color;

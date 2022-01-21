@@ -55,7 +55,7 @@ const Competition = () => {
             requestMatches();
           }}
         >
-          <label htmlFor="matchdays">
+          <label className="text-white" htmlFor="matchdays">
             Select another match day:
             <select
               id="matchday"
@@ -70,7 +70,7 @@ const Competition = () => {
               ))}
             </select>
           </label>
-          <button>Submit</button>
+          <button id="submit">Submit</button>
         </form>
         {matches.map((match) =>
           match.status === "FINISHED" ? (
