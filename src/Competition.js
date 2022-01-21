@@ -152,6 +152,7 @@ const Competition = () => {
 
 export default Competition;
 
+// OLD API CALL
 // $.ajax({
 //   headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
 //   url: `https://api.football-data.org/v2/competitions/${competitionCode[0]}/matches?season=2021`,
