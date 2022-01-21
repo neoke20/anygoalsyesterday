@@ -103,7 +103,7 @@ const Competition = () => {
               </div>
               <div className="text-center match-result">
                 <h4 className="pt-3">Were there any goals:</h4>
-                <h5 style={{ textdecoration: "line-through" }}>Cancelled</h5>
+                <h5 style={{ color: "red" }}>Cancelled</h5>
               </div>
             </div>
           ) : match.status === "SCHEDULED" ? (
@@ -115,7 +115,12 @@ const Competition = () => {
               </div>
               <div className="text-center match-result">
                 <h4 className="pt-3">Were there any goals:</h4>
-                <h5 style={{ textdecoration: "line-through" }}>Scheduled</h5>
+                <h5 style={{ lineHeight: "2rem" }}>
+                  <mark>Scheduled</mark>
+                </h5>
+                <div className="schedule-date">
+                  {match.utcDate.substr(0, 10)}
+                </div>
               </div>
             </div>
           ) : (
