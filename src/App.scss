@@ -12,6 +12,11 @@ $pink: #e91e63;
 body {
   height: 100vh;
 }
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 button#submit {
   margin-left: 10px;
   border-radius: 4px;

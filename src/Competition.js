@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 
 // Get the url
 const url = window.location.href;
-console.log(url);
 // Isolate the competition code from the URL to place in the Api fetch
 const competitionCode = url.match(/([A-Z])\w+/);
-console.log(competitionCode);
 
 const Competition = () => {
   const [year, setYear] = useState("");
@@ -27,10 +25,8 @@ const Competition = () => {
       `https://api.football-data.org/v2/competitions/${competitionCode[0]}/matches?season=${year}&matchday=${matchDay}`,
       requestOptions
     );
-    console.log(res);
     const json = await res.json();
     setMatches(json.matches);
-    console.log(json.matches);
     // Gets the latest match day
     const getMatchDay = json.matches[0].season.currentMatchday;
     // Isolate the year the latest season started at
