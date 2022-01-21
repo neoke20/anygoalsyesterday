@@ -1,11 +1,12 @@
-import { useEffect } from "react";
-import { useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // Get the url
 const url = window.location.href;
+console.log(url);
 // Isolate the competition code from the URL to place in the Api fetch
 const competitionCode = url.match(/([A-Z])\w+/);
+console.log(competitionCode);
 
 const Competition = () => {
   const [year, setYear] = useState("");
