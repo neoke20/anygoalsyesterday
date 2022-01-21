@@ -1,13 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
 $primary-color: #ebebeb;
 $black: #212121;
 $queen-blue: #41658a;
 $teal: #009688;
-$title-font: 'Bungee', cursive;
-$pink: #E91E63;
+$title-font: "Bungee", cursive;
+$pink: #e91e63;
 
 * {
   box-sizing: border-box;
+}
+body {
+  height: 100vh;
+}
+button#submit {
+  margin-left: 10px;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid black;
+  &:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+  }
 }
 h1 {
   padding: 20px 0 0 0;
@@ -112,6 +126,10 @@ h1 {
       text-align: center;
     }
   }
+  .schedule-date {
+    text-align: right;
+    font-size: large;
+  }
 }
 .team-names {
   text-align: left;
@@ -164,6 +182,7 @@ h1 {
 }
 // Footer
 #footer {
+  margin-top: 40px;
   display: flex;
   justify-content: space-between;
   padding: 20px 40px;
