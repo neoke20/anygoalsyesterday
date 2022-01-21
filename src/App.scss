@@ -9,6 +9,9 @@ $pink: #e91e63;
 * {
   box-sizing: border-box;
 }
+body {
+  height: 100vh;
+}
 h1 {
   padding: 20px 0 0 0;
   color: $primary-color;
