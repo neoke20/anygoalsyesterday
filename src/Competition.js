@@ -67,24 +67,49 @@ const Competition = () => {
           <button>Submit</button>
         </form>
         {matches.map((match) =>
-          match.score.fullTime.awayTeam + match.score.fullTime.homeTeam > 0 ? (
+          match.status === "FINISHED" ? (
+            match.score.fullTime.awayTeam + match.score.fullTime.homeTeam >
+            0 ? (
+              <div className="match-card" key={match.id}>
+                <div className="flex-grow-1 team-names">
+                  <h3>{match.homeTeam.name}</h3>
+                  <strong>VS</strong>
+                  <h3>{match.awayTeam.name}</h3>
+                  <h5>Yes</h5>
+                </div>
+              </div>
+            ) : (
+              <div className="match-card" key={match.id}>
+                <div className="flex-grow-1 team-names">
+                  <h3>{match.homeTeam.name}</h3>
+                  <strong>VS</strong>
+                  <h3>{match.awayTeam.name}</h3>
+                  <h5 style={{ color: "#FF4081" }}>No</h5>
+                </div>
+              </div>
+            )
+          ) : match.status === "CANCELLED" ? (
             <div className="match-card" key={match.id}>
               <div className="flex-grow-1 team-names">
                 <h3>{match.homeTeam.name}</h3>
                 <strong>VS</strong>
                 <h3>{match.awayTeam.name}</h3>
-                <p>Yes</p>
+                <h5 style={{ textdecoration: "line-through" }}>Cancelled</h5>
+              </div>
+            </div>
+          ) : match.status === "SCHEDULED" ? (
+            <div className="match-card" key={match.id}>
+              <div className="flex-grow-1 team-names">
+                <h3>{match.homeTeam.name}</h3>
+                <strong>VS</strong>
+                <h3>{match.awayTeam.name}</h3>
+                <h5 style={{ textdecoration: "line-through" }}>Scheduled</h5>
               </div>
             </div>
           ) : (
-            <div className="match-card" key={match.id}>
-              <div className="flex-grow-1 team-names">
-                <h3>{match.homeTeam.name}</h3>
-                <strong>VS</strong>
-                <h3>{match.awayTeam.name}</h3>
-                <p>No</p>
-              </div>
-            </div>
+            <h5>
+              <mark>{match.status.replace("_", " ").toUpperCase()}</mark>
+            </h5>
           )
         )}
       </div>
