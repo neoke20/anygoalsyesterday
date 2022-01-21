@@ -10,6 +10,7 @@ const Competition = () => {
   const [year, setYear] = useState("");
   const [matchDay, updateMatchDay] = useState("1");
   const [allMatchDays, updateAllMatchDays] = useState([]);
+  const [teams, setTeams] = useState([]);
 
   useEffect(() => {
     requestMatches();
@@ -26,7 +27,8 @@ const Competition = () => {
     );
     console.log(res);
     const json = await res.json();
-    console.log(json);
+    setTeams(json.matches);
+    console.log(json.matches);
     // Gets the latest match day
     const getMatchDay = json.matches[0].season.currentMatchday;
     // Isolate the year the latest season started at
@@ -37,15 +39,14 @@ const Competition = () => {
     // Remove the 0 from the array
     allDays.shift();
     updateAllMatchDays(allDays);
-    const results = document.querySelector("#results");
-    json.matches.forEach((match) => {
-      const teamNames = `<li>${match.homeTeam.name}</li>`;
-      results.insertAdjacentHTML("beforeend", teamNames);
-    });
+    // const results = document.querySelector("#results");
+    // json.matches.forEach((match) => {
+    //   const teamNames = `<li>${match.homeTeam.name}</li>`;
+    //   results.insertAdjacentHTML("beforeend", teamNames);
+    // });
   }
   return (
     <div>
-      <h1>Test</h1>
       <div className="text-center">
         <form
           onSubmit={(e) => {
@@ -70,6 +71,15 @@ const Competition = () => {
           </label>
           <button>Submit</button>
         </form>
+        {teams.map((team) => (
+          <div className="match-card" key={team.id}>
+            <div className="flex-grow-1 team-names">
+              <h3>{team.homeTeam.name}</h3>
+              <strong>VS</strong>
+              <h3>{team.awayTeam.name}</h3>
+            </div>
+          </div>
+        ))}
       </div>
       <div>
         <ul id="results"></ul>
