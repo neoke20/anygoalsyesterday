@@ -7,10 +7,9 @@ const url = window.location.href;
 const competitionCode = url.match(/([A-Z])\w+/);
 
 const Competition = () => {
-  const [year, setYear] = useState("");
-  const [matchDay, updateMatchDay] = useState("1");
   const [allMatchDays, updateAllMatchDays] = useState([]);
   const [matches, setMatches] = useState([]);
+  const [matchDay, updateMatchDay] = useState("");
 
   useEffect(() => {
     requestMatches();
@@ -22,22 +21,26 @@ const Competition = () => {
       headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
     };
     const res = await fetch(
-      `https://api.football-data.org/v2/competitions/${competitionCode[0]}/matches?season=${year}&matchday=${matchDay}`,
+      `https://api.football-data.org/v2/competitions/${competitionCode[0]}/matches?&matchday=${matchDay}`,
       requestOptions
     );
+    console.log(res);
     const json = await res.json();
+    console.log(json);
     setMatches(json.matches);
     // Gets the latest match day
     const getMatchDay = json.matches[0].season.currentMatchday;
-    // Isolate the year the latest season started at
-    const getCurrentSeason = json.matches[0].season.startDate.substring(0, 4);
-    setYear(getCurrentSeason);
+    updateMatchDay(getMatchDay);
     // Creates an array of all the match days until today
     const allDays = [...Array(getMatchDay + 1).keys()];
     // Remove the 0 from the array
     allDays.shift();
     updateAllMatchDays(allDays);
   }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    requestMatches();
+  };
   return (
     <div>
       <Link to="/">
@@ -46,12 +49,7 @@ const Competition = () => {
         </button>
       </Link>
       <div className="text-center">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            requestMatches();
-          }}
-        >
+        <form onSubmit={handleSubmit}>
           <label className="text-white" htmlFor="matchdays">
             Select another match day:
             <select
@@ -67,7 +65,7 @@ const Competition = () => {
               ))}
             </select>
           </label>
-          <button id="submit">Submit</button>
+          <button id="submit">Check Goals!</button>
         </form>
         {matches.map((match) =>
           match.status === "FINISHED" ? (
@@ -80,6 +78,7 @@ const Competition = () => {
                   <h3>{match.awayTeam.name}</h3>
                 </div>
                 <div className="text-center match-result">
+                  <h5 className="match-day">Day {match.matchday}</h5>
                   <h4 className="pt-3">Were there any goals:</h4>
                   <h5>Yes</h5>
                 </div>
@@ -92,6 +91,7 @@ const Competition = () => {
                   <h3>{match.awayTeam.name}</h3>
                 </div>
                 <div className="text-center match-result">
+                  <h5 className="match-day">Day {match.matchday}</h5>
                   <h4 className="pt-3">Were there any goals:</h4>
                   <h5 style={{ color: "#FF4081" }}>No</h5>
                 </div>
@@ -105,6 +105,7 @@ const Competition = () => {
                 <h3>{match.awayTeam.name}</h3>
               </div>
               <div className="text-center match-result">
+                <h5 className="match-day">Day {match.matchday}</h5>
                 <h4 className="pt-3">Were there any goals:</h4>
                 <h5 style={{ color: "red" }}>Cancelled</h5>
               </div>
@@ -117,6 +118,7 @@ const Competition = () => {
                 <h3>{match.awayTeam.name}</h3>
               </div>
               <div className="text-center match-result">
+                <h5 className="match-day">Day {match.matchday}</h5>
                 <h4 className="pt-3">Were there any goals:</h4>
                 <h5 style={{ lineHeight: "2rem" }}>
                   <mark>Scheduled</mark>

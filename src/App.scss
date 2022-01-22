@@ -98,6 +98,7 @@ h1 {
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+  position: relative;
   height: 100%;
   display: flex;
   padding: 12px;
@@ -121,6 +122,18 @@ h1 {
   .schedule-date {
     text-align: right;
     font-size: large;
+  }
+  .match-day {
+    position: absolute;
+    top: -14px;
+    right: -20px;
+    background-color: $primary-color;
+    padding: 4px;
+    border-radius: 4px;
+    color: $queen-blue;
+    text-shadow: none;
+    outline: 1px black solid;
+    outline-offset: -2px;
   }
   @media (max-width: 800px) {
     flex-direction: column;
