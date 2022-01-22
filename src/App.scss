@@ -98,6 +98,7 @@ h1 {
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+  position: relative;
   height: 100%;
   display: flex;
   padding: 12px;
@@ -122,9 +123,21 @@ h1 {
     text-align: right;
     font-size: large;
   }
+  .match-day {
+    position: absolute;
+    top: -14px;
+    right: -20px;
+    background-color: $primary-color;
+    padding: 4px;
+    border-radius: 4px;
+    color: $queen-blue;
+    text-shadow: none;
+    outline: 1px black solid;
+    outline-offset: -2px;
+  }
   @media (max-width: 800px) {
     flex-direction: column;
-    margin: 28px 12px;
+    margin: 28px 30px;
     .team-names {
       margin: 0 0 30px 0;
       text-align: center;
