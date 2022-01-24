@@ -85,11 +85,8 @@ const Competition = () => {
                     <h5>Yes</h5>
                   </div>
                 </div>
-                <div
-                  className="accordion goal-accordion"
-                  id={`accordionExample${match.id}`}
-                >
-                  <div className="accordion-item">
+                <div className="accordion" id={`accordionExample${match.id}`}>
+                  <div className="accordion-item goal-accordion">
                     <h2 className="accordion-header" id="intro">
                       <button
                         className="accordion-button collapsed"
@@ -99,7 +96,7 @@ const Competition = () => {
                         aria-expanded="false"
                         aria-controls={`collapseOne${match.id}`}
                       >
-                        More info about the goals
+                        More info about the goals (spoiler-free)
                       </button>
                     </h2>
                     <div
@@ -110,10 +107,20 @@ const Competition = () => {
                     >
                       <div className="accordion-body">
                         <h4>
-                          <button className="goal-reveal">
-                            Goals in the first half?
+                          <button
+                            className="btn btn-light first-goal-reveal"
+                            onClick={() =>
+                              document
+                                .getElementById(`first-${match.id}`)
+                                .classList.toggle("d-none")
+                            }
+                          >
+                            Any goals in the first half?
                           </button>
-                          <span className="goal-details">
+                          <span
+                            id={`first-${match.id}`}
+                            className="first-goal-details d-none"
+                          >
                             {match.score.halfTime.homeTeam +
                               match.score.halfTime.awayTeam >
                             0
@@ -122,10 +129,20 @@ const Competition = () => {
                           </span>
                         </h4>
                         <h4>
-                          <button className="goal-reveal">
-                            Goals in the second half?
+                          <button
+                            className="btn btn-light second-goal-reveal"
+                            onClick={() =>
+                              document
+                                .getElementById(`second-${match.id}`)
+                                .classList.toggle("d-none")
+                            }
+                          >
+                            Any goals in the second half?
                           </button>
-                          <span className="goal-details">
+                          <span
+                            id={`second-${match.id}`}
+                            className="second-goal-details d-none"
+                          >
                             {match.score.fullTime.homeTeam +
                               match.score.fullTime.awayTeam >
                             match.score.halfTime.homeTeam +
