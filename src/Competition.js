@@ -88,25 +88,25 @@ const Competition = () => {
                     <h5>Yes</h5>
                   </div>
                 </div>
-                <div className="accordion" id="accordionExample">
+                <div className="accordion" id={`accordionExample${match.id}`}>
                   <div className="accordion-item">
                     <h2 className="accordion-header" id="intro">
                       <button
                         className="accordion-button collapsed"
                         type="button"
                         data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne"
+                        data-bs-target={`#collapseOne${match.id}`}
                         aria-expanded="false"
-                        aria-controls="collapseOne"
+                        aria-controls={`collapseOne${match.id}`}
                       >
                         Read More
                       </button>
                     </h2>
                     <div
-                      id="collapseOne"
+                      id={`collapseOne${match.id}`}
                       className="accordion-collapse collapse"
                       aria-labelledby="intro"
-                      data-bs-parent="#accordionExample"
+                      data-bs-parent={`#accordionExample${match.id}`}
                     >
                       <div className="accordion-body">
                         <h4>
