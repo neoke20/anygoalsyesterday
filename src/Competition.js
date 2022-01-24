@@ -69,6 +69,7 @@ const Competition = () => {
         </form>
         {matches.map((match) =>
           match.status === "FINISHED" ? (
+            // Check if there were goals, and displays yes if there were any
             match.score.fullTime.awayTeam + match.score.fullTime.homeTeam >
             0 ? (
               <div className="match-card" key={match.id}>
@@ -81,6 +82,13 @@ const Competition = () => {
                   <h5 className="match-day">Day {match.matchday}</h5>
                   <h4 className="pt-3">Were there any goals:</h4>
                   <h5>Yes</h5>
+                  <h4>
+                    {match.score.halfTime.homeTeam +
+                      match.score.halfTime.awayTeam >
+                    0
+                      ? "Yes"
+                      : "No"}
+                  </h4>
                 </div>
               </div>
             ) : (
