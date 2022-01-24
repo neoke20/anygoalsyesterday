@@ -72,11 +72,8 @@ const Competition = () => {
             // Check if there were goals, and displays yes if there were any
             match.score.fullTime.awayTeam + match.score.fullTime.homeTeam >
             0 ? (
-              <div
-                className="d-flex flex-column justify-content-center"
-                key={match.id}
-              >
-                <div className="match-card">
+              <div className="match-card" key={match.id}>
+                <div className="match-card-info">
                   <div className="flex-grow-1 team-names">
                     <h3>{match.homeTeam.name}</h3>
                     <strong>VS</strong>
@@ -88,7 +85,10 @@ const Competition = () => {
                     <h5>Yes</h5>
                   </div>
                 </div>
-                <div className="accordion" id={`accordionExample${match.id}`}>
+                <div
+                  className="accordion goal-accordion"
+                  id={`accordionExample${match.id}`}
+                >
                   <div className="accordion-item">
                     <h2 className="accordion-header" id="intro">
                       <button
@@ -99,7 +99,7 @@ const Competition = () => {
                         aria-expanded="false"
                         aria-controls={`collapseOne${match.id}`}
                       >
-                        Read More
+                        More info about the goals
                       </button>
                     </h2>
                     <div
