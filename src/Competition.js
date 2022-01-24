@@ -129,9 +129,20 @@ const Competition = () => {
               </div>
             </div>
           ) : (
-            <h5>
-              <mark>{match.status.replace("_", " ").toUpperCase()}</mark>
-            </h5>
+            <div className="match-card" key={match.id}>
+              <div className="flex-grow-1 team-names">
+                <h3>{match.homeTeam.name}</h3>
+                <strong>VS</strong>
+                <h3>{match.awayTeam.name}</h3>
+              </div>
+              <div className="text-center match-result">
+                <h5 className="match-day">Day {match.matchday}</h5>
+                <h4 className="pt-3">Were there any goals:</h4>
+                <h5>
+                  <mark>{match.status.replace("_", " ").toUpperCase()}</mark>
+                </h5>
+              </div>
+            </div>
           )
         )}
       </div>
