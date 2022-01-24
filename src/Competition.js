@@ -83,11 +83,29 @@ const Competition = () => {
                   <h4 className="pt-3">Were there any goals:</h4>
                   <h5>Yes</h5>
                   <h4>
-                    {match.score.halfTime.homeTeam +
-                      match.score.halfTime.awayTeam >
-                    0
-                      ? "Yes"
-                      : "No"}
+                    <button className="goal-reveal">
+                      Goals in the first half?
+                    </button>
+                    <span className="goal-details">
+                      {match.score.halfTime.homeTeam +
+                        match.score.halfTime.awayTeam >
+                      0
+                        ? "Yes"
+                        : "No"}
+                    </span>
+                  </h4>
+                  <h4>
+                    <button className="goal-reveal">
+                      Goals in the second half?
+                    </button>
+                    <span className="goal-details">
+                      {match.score.fullTime.homeTeam +
+                        match.score.fullTime.awayTeam >
+                      match.score.halfTime.homeTeam +
+                        match.score.halfTime.awayTeam
+                        ? "Yes"
+                        : "No"}
+                    </span>
                   </h4>
                 </div>
               </div>
