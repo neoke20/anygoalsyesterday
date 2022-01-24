@@ -106,7 +106,7 @@ const Competition = () => {
                       data-bs-parent={`#accordionExample${match.id}`}
                     >
                       <div className="accordion-body">
-                        <h4>
+                        <h4 className="d-flex justify-content-between">
                           <button
                             className="btn btn-light first-goal-reveal"
                             onClick={() =>
@@ -115,7 +115,7 @@ const Competition = () => {
                                 .classList.toggle("d-none")
                             }
                           >
-                            Any goals in the first half?
+                            Any goals in the 1st half?
                           </button>
                           <span
                             id={`first-${match.id}`}
@@ -128,7 +128,7 @@ const Competition = () => {
                               : "No"}
                           </span>
                         </h4>
-                        <h4>
+                        <h4 className="d-flex justify-content-between">
                           <button
                             className="btn btn-light second-goal-reveal"
                             onClick={() =>
@@ -137,7 +137,7 @@ const Competition = () => {
                                 .classList.toggle("d-none")
                             }
                           >
-                            Any goals in the second half?
+                            Any goals in the 2nd half?
                           </button>
                           <span
                             id={`second-${match.id}`}
