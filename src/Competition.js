@@ -72,7 +72,7 @@ const Competition = () => {
             // Check if there were goals, and displays yes if there were any
             match.score.fullTime.awayTeam + match.score.fullTime.homeTeam >
             0 ? (
-              <div className="match-card" key={match.id}>
+              <div className="match-card-yes" key={match.id}>
                 <div className="match-card-info">
                   <div className="flex-grow-1 team-names">
                     <h3>{match.homeTeam.name}</h3>
