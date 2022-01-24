@@ -90,6 +90,9 @@ h1 {
   justify-content: center;
   flex-direction: column;
   margin: 40px 120px;
+  @media (max-width: 800px) {
+    margin: 28px 30px;
+  }
 }
 .match-card-info {
   background: rgb(47, 163, 141);
@@ -143,7 +146,6 @@ h1 {
   }
   @media (max-width: 800px) {
     flex-direction: column;
-    margin: 28px 30px;
     .team-names {
       margin: 0 0 30px 0;
       text-align: center;
