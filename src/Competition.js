@@ -69,18 +69,91 @@ const Competition = () => {
         </form>
         {matches.map((match) =>
           match.status === "FINISHED" ? (
+            // Check if there were goals, and displays yes if there were any
             match.score.fullTime.awayTeam + match.score.fullTime.homeTeam >
             0 ? (
-              <div className="match-card" key={match.id}>
-                <div className="flex-grow-1 team-names">
-                  <h3>{match.homeTeam.name}</h3>
-                  <strong>VS</strong>
-                  <h3>{match.awayTeam.name}</h3>
+              <div className="match-card-yes" key={match.id}>
+                <div className="match-card-info">
+                  <div className="flex-grow-1 team-names">
+                    <h3>{match.homeTeam.name}</h3>
+                    <strong>VS</strong>
+                    <h3>{match.awayTeam.name}</h3>
+                  </div>
+                  <div className="text-center match-result">
+                    <h5 className="match-day">Day {match.matchday}</h5>
+                    <h4 className="pt-3">Were there any goals:</h4>
+                    <h5>Yes</h5>
+                  </div>
                 </div>
-                <div className="text-center match-result">
-                  <h5 className="match-day">Day {match.matchday}</h5>
-                  <h4 className="pt-3">Were there any goals:</h4>
-                  <h5>Yes</h5>
+                <div className="accordion" id={`accordionExample${match.id}`}>
+                  <div className="accordion-item goal-accordion">
+                    <h2 className="accordion-header" id="intro">
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target={`#collapseOne${match.id}`}
+                        aria-expanded="false"
+                        aria-controls={`collapseOne${match.id}`}
+                      >
+                        More info about the goals (spoiler-free)
+                      </button>
+                    </h2>
+                    <div
+                      id={`collapseOne${match.id}`}
+                      className="accordion-collapse collapse"
+                      aria-labelledby="intro"
+                      data-bs-parent={`#accordionExample${match.id}`}
+                    >
+                      <div className="accordion-body">
+                        <h4 className="d-flex justify-content-between">
+                          <button
+                            className="btn btn-light first-goal-reveal"
+                            onClick={() =>
+                              document
+                                .getElementById(`first-${match.id}`)
+                                .classList.toggle("d-none")
+                            }
+                          >
+                            Any goals in the 1st half?
+                          </button>
+                          <span
+                            id={`first-${match.id}`}
+                            className="first-goal-details d-none"
+                          >
+                            {match.score.halfTime.homeTeam +
+                              match.score.halfTime.awayTeam >
+                            0
+                              ? "Yes"
+                              : "No"}
+                          </span>
+                        </h4>
+                        <h4 className="d-flex justify-content-between">
+                          <button
+                            className="btn btn-light second-goal-reveal"
+                            onClick={() =>
+                              document
+                                .getElementById(`second-${match.id}`)
+                                .classList.toggle("d-none")
+                            }
+                          >
+                            Any goals in the 2nd half?
+                          </button>
+                          <span
+                            id={`second-${match.id}`}
+                            className="second-goal-details d-none"
+                          >
+                            {match.score.fullTime.homeTeam +
+                              match.score.fullTime.awayTeam >
+                            match.score.halfTime.homeTeam +
+                              match.score.halfTime.awayTeam
+                              ? "Yes"
+                              : "No"}
+                          </span>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             ) : (

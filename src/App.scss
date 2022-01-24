@@ -85,6 +85,88 @@ h1 {
   bottom: -10px;
   right: 10px;
 }
+.goal-accordion {
+  border-radius: 0 0 5px 5px !important;
+}
+.match-card-yes {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 40px 120px;
+  @media (max-width: 800px) {
+    margin: 28px 30px;
+  }
+}
+.first-goal-details,
+.second-goal-details {
+  align-self: center;
+}
+.match-card-info {
+  background: rgb(47, 163, 141);
+  background-image: linear-gradient(
+    to right bottom,
+    #010202,
+    #132520,
+    #263d32,
+    #3c5343,
+    #6a866d
+  );
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 100%;
+  display: flex;
+  padding: 12px;
+  justify-content: space-evenly;
+  align-items: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  // margin: 40px 120px;
+  background-color: $black;
+  text-decoration: none;
+  color: $primary-color;
+  h5 {
+    color: $teal;
+  }
+  h4,
+  h5,
+  .results {
+    text-align: right;
+  }
+  .schedule-date {
+    text-align: right;
+    font-size: large;
+  }
+  .match-day {
+    position: absolute;
+    top: -14px;
+    right: -20px;
+    background-color: $primary-color;
+    padding: 4px;
+    border-radius: 4px;
+    color: $queen-blue;
+    text-shadow: none;
+    outline: 1px black solid;
+    outline-offset: -2px;
+  }
+  @media (max-width: 800px) {
+    flex-direction: column;
+    .team-names {
+      margin: 0 0 30px 0;
+      text-align: center;
+    }
+    h4,
+    h5,
+    .results {
+      text-align: center;
+    }
+    .schedule-date {
+      text-align: center;
+    }
+  }
+}
 .match-card {
   background: rgb(47, 163, 141);
   background-image: linear-gradient(
