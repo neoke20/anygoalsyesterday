@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 const url = window.location.href;
 // Isolate the competition code from the URL to place in the Api fetch
 const competitionCode = url.match(/([A-Z])\w+/);
+const matchDayNumber = url.match(/\d*$/);
 
 const Competition = () => {
   const [allMatchDays, updateAllMatchDays] = useState([]);
   const [matches, setMatches] = useState([]);
-  const [matchDay, updateMatchDay] = useState("");
+  const [matchDay, updateMatchDay] = useState(matchDayNumber[0]);
 
   useEffect(() => {
     requestMatches();
