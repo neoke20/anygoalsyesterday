@@ -25,7 +25,6 @@ const Competition = () => {
       `https://api.football-data.org/v2/competitions/${competitionCode[0]}/matches?&matchday=${matchDay}`,
       requestOptions
     );
-    console.log(res);
     const json = await res.json();
     setMatches(json.matches);
     // Gets the latest match day

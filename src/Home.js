@@ -27,7 +27,6 @@ const Home = () => {
       const competitionName = `<a class="competition-card" href="competition/${competition.code}-matchday=${competition.currentSeason.currentMatchday}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url(${competition.area.ensignUrl});"><div class="d-flex flex-column"><h2>${competition.name}</h2><p class="country-name">(${competition.area.name})</p></div></a>`;
       competitions.insertAdjacentHTML("beforeend", competitionName);
-      console.log(competition);
     });
   });
 
