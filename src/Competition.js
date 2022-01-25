@@ -5,14 +5,12 @@ import { Link } from "react-router-dom";
 const url = window.location.href;
 // Isolate the competition code from the URL to place in the Api fetch
 const competitionCode = url.match(/([A-Z])\w+/);
-const matchDayNumber = url.match(/matchday=\w*/);
-console.log(competitionCode);
-console.log(matchDayNumber);
+const matchDayNumber = url.match(/\d*$/);
 
 const Competition = () => {
   const [allMatchDays, updateAllMatchDays] = useState([]);
   const [matches, setMatches] = useState([]);
-  const [matchDay, updateMatchDay] = useState("");
+  const [matchDay, updateMatchDay] = useState(matchDayNumber[0]);
 
   useEffect(() => {
     requestMatches();
@@ -27,6 +25,7 @@ const Competition = () => {
       `https://api.football-data.org/v2/competitions/${competitionCode[0]}/matches?&matchday=${matchDay}`,
       requestOptions
     );
+    console.log(res);
     const json = await res.json();
     setMatches(json.matches);
     // Gets the latest match day
