@@ -139,10 +139,9 @@ h1 {
     text-align: right;
     font-size: large;
   }
-  .match-day {
+  .match-day,
+  .stage {
     position: absolute;
-    top: -14px;
-    right: -20px;
     background-color: $primary-color;
     padding: 4px;
     border-radius: 4px;
@@ -150,6 +149,15 @@ h1 {
     text-shadow: none;
     outline: 1px black solid;
     outline-offset: -2px;
+  }
+  .match-day {
+    top: -20px;
+    right: -20px;
+  }
+  .stage {
+    top: -20px;
+    right: 60px;
+    text-transform: lowercase;
   }
   @media (max-width: 800px) {
     flex-direction: column;
@@ -205,10 +213,9 @@ h1 {
     text-align: right;
     font-size: large;
   }
-  .match-day {
+  .match-day,
+  .stage {
     position: absolute;
-    top: -14px;
-    right: -20px;
     background-color: $primary-color;
     padding: 4px;
     border-radius: 4px;
@@ -216,6 +223,15 @@ h1 {
     text-shadow: none;
     outline: 1px black solid;
     outline-offset: -2px;
+  }
+  .match-day {
+    top: -20px;
+    right: -20px;
+  }
+  .stage {
+    top: -20px;
+    right: 60px;
+    text-transform: lowercase;
   }
   @media (max-width: 800px) {
     flex-direction: column;

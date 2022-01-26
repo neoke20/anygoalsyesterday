@@ -81,6 +81,7 @@ const Competition = () => {
                   </div>
                   <div className="text-center match-result">
                     <h5 className="match-day">Day {match.matchday}</h5>
+                    <h5 className="stage">{match.stage.replace("_", " ")}</h5>
                     <h4 className="pt-3">Were there any goals:</h4>
                     <h5>Yes</h5>
                   </div>
@@ -165,6 +166,7 @@ const Competition = () => {
                 </div>
                 <div className="text-center match-result">
                   <h5 className="match-day">Day {match.matchday}</h5>
+                  <h5 className="stage">{match.stage.replace("_", " ")}</h5>
                   <h4 className="pt-3">Were there any goals:</h4>
                   <h5 style={{ color: "#FF4081" }}>No</h5>
                 </div>
@@ -179,6 +181,7 @@ const Competition = () => {
               </div>
               <div className="text-center match-result">
                 <h5 className="match-day">Day {match.matchday}</h5>
+                <h5 className="stage">{match.stage.replace("_", " ")}</h5>
                 <h4 className="pt-3">Were there any goals:</h4>
                 <h5 style={{ color: "red" }}>Cancelled</h5>
               </div>
@@ -192,6 +195,7 @@ const Competition = () => {
               </div>
               <div className="text-center match-result">
                 <h5 className="match-day">Day {match.matchday}</h5>
+                <h5 className="stage">{match.stage.replace("_", " ")}</h5>
                 <h4 className="pt-3">Were there any goals:</h4>
                 <h5 style={{ lineHeight: "2rem" }}>
                   <mark>Scheduled</mark>
@@ -210,6 +214,7 @@ const Competition = () => {
               </div>
               <div className="text-center match-result">
                 <h5 className="match-day">Day {match.matchday}</h5>
+                <h5 className="stage">{match.stage.replace("_", " ")}</h5>
                 <h4 className="pt-3">Were there any goals:</h4>
                 <h5>
                   <mark>{match.status.replace("_", " ").toUpperCase()}</mark>

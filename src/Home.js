@@ -35,7 +35,6 @@ const Home = () => {
     url(${emblem});"><div class="d-flex flex-column"><h2>${competition.name}</h2><p class="country-name">(${competition.area.name})</p></div></a>`;
       competitions.insertAdjacentHTML("beforeend", competitionName);
     });
-    console.log(response);
   });
 
   return (
