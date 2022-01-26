@@ -259,7 +259,7 @@ const Competition = () => {
               <div className="text-center match-result">
                 <h5 className="match-day">Day {match.matchday}</h5>
                 <h5 className="stage">{match.stage.replaceAll("_", " ")}</h5>
-                <h4 className="pt-3">Were there any goals:</h4>
+                <h4 className="pt-5">Were there any goals:</h4>
                 <h5 style={{ lineHeight: "2rem" }}>
                   <mark>Scheduled</mark>
                 </h5>
