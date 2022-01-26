@@ -26,6 +26,7 @@ const Competition = () => {
       requestOptions
     );
     const json = await res.json();
+    console.log(json);
     setMatches(json.matches);
     // Gets the latest match day
     const getMatchDay = json.matches[0].season.currentMatchday;
@@ -80,6 +81,9 @@ const Competition = () => {
                   </div>
                   <div className="text-center match-result">
                     <h5 className="match-day">Day {match.matchday}</h5>
+                    <h5 className="stage">
+                      {match.stage.replaceAll("_", " ")}
+                    </h5>
                     <h4 className="pt-3">Were there any goals:</h4>
                     <h5>Yes</h5>
                   </div>
@@ -150,22 +154,84 @@ const Competition = () => {
                               : "No"}
                           </span>
                         </h4>
+                        <div className="referees">
+                          <h5>Referees:</h5>
+                          <ul>
+                            {match.referees.length > 0
+                              ? match.referees.map((referee) => (
+                                  <li>
+                                    {referee.name} (
+                                    <span className="referee-role">
+                                      {referee.role.replaceAll("_", " ")}
+                                    </span>
+                                    )
+                                  </li>
+                                ))
+                              : "No information about referees"}
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             ) : (
-              <div className="match-card" key={match.id}>
-                <div className="flex-grow-1 team-names">
-                  <h3>{match.homeTeam.name}</h3>
-                  <strong>VS</strong>
-                  <h3>{match.awayTeam.name}</h3>
+              <div className="match-card-no" key={match.id}>
+                <div className="match-card-info">
+                  <div className="flex-grow-1 team-names">
+                    <h3>{match.homeTeam.name}</h3>
+                    <strong>VS</strong>
+                    <h3>{match.awayTeam.name}</h3>
+                  </div>
+                  <div className="text-center match-result">
+                    <h5 className="match-day">Day {match.matchday}</h5>
+                    <h5 className="stage">
+                      {match.stage.replaceAll("_", " ")}
+                    </h5>
+                    <h4 className="pt-3">Were there any goals:</h4>
+                    <h5 style={{ color: "#FF4081" }}>No</h5>
+                  </div>
                 </div>
-                <div className="text-center match-result">
-                  <h5 className="match-day">Day {match.matchday}</h5>
-                  <h4 className="pt-3">Were there any goals:</h4>
-                  <h5 style={{ color: "#FF4081" }}>No</h5>
+                <div className="accordion" id={`accordionExample${match.id}`}>
+                  <div className="accordion-item goal-accordion">
+                    <h2 className="accordion-header" id="intro">
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target={`#collapseOne${match.id}`}
+                        aria-expanded="false"
+                        aria-controls={`collapseOne${match.id}`}
+                      >
+                        More info about the game (spoiler-free)
+                      </button>
+                    </h2>
+                    <div
+                      id={`collapseOne${match.id}`}
+                      className="accordion-collapse collapse"
+                      aria-labelledby="intro"
+                      data-bs-parent={`#accordionExample${match.id}`}
+                    >
+                      <div className="accordion-body">
+                        <div className="referees">
+                          <h5>Referees:</h5>
+                          <ul>
+                            {match.referees.length > 0
+                              ? match.referees.map((referee) => (
+                                  <li>
+                                    {referee.name} (
+                                    <span className="referee-role">
+                                      {referee.role.replaceAll("_", " ")}
+                                    </span>
+                                    )
+                                  </li>
+                                ))
+                              : "No information about referees"}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             )
@@ -178,6 +244,7 @@ const Competition = () => {
               </div>
               <div className="text-center match-result">
                 <h5 className="match-day">Day {match.matchday}</h5>
+                <h5 className="stage">{match.stage.replaceAll("_", " ")}</h5>
                 <h4 className="pt-3">Were there any goals:</h4>
                 <h5 style={{ color: "red" }}>Cancelled</h5>
               </div>
@@ -191,6 +258,7 @@ const Competition = () => {
               </div>
               <div className="text-center match-result">
                 <h5 className="match-day">Day {match.matchday}</h5>
+                <h5 className="stage">{match.stage.replaceAll("_", " ")}</h5>
                 <h4 className="pt-3">Were there any goals:</h4>
                 <h5 style={{ lineHeight: "2rem" }}>
                   <mark>Scheduled</mark>
@@ -209,9 +277,10 @@ const Competition = () => {
               </div>
               <div className="text-center match-result">
                 <h5 className="match-day">Day {match.matchday}</h5>
+                <h5 className="stage">{match.stage.replaceAll("_", " ")}</h5>
                 <h4 className="pt-3">Were there any goals:</h4>
                 <h5>
-                  <mark>{match.status.replace("_", " ").toUpperCase()}</mark>
+                  <mark>{match.status.replaceAll("_", " ").toUpperCase()}</mark>
                 </h5>
               </div>
             </div>

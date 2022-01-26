@@ -88,7 +88,8 @@ h1 {
 .goal-accordion {
   border-radius: 0 0 5px 5px !important;
 }
-.match-card-yes {
+.match-card-yes,
+.match-card-no {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -139,10 +140,9 @@ h1 {
     text-align: right;
     font-size: large;
   }
-  .match-day {
+  .match-day,
+  .stage {
     position: absolute;
-    top: -14px;
-    right: -20px;
     background-color: $primary-color;
     padding: 4px;
     border-radius: 4px;
@@ -150,6 +150,15 @@ h1 {
     text-shadow: none;
     outline: 1px black solid;
     outline-offset: -2px;
+  }
+  .match-day {
+    top: -20px;
+    right: -20px;
+  }
+  .stage {
+    top: -20px;
+    right: 60px;
+    text-transform: lowercase;
   }
   @media (max-width: 800px) {
     flex-direction: column;
@@ -165,6 +174,21 @@ h1 {
     .schedule-date {
       text-align: center;
     }
+  }
+}
+.referees {
+  border: 1px solid $primary-color;
+  background-color: black;
+  padding: 4px;
+  ul {
+    text-align: left;
+  }
+  .referee-role {
+    text-transform: lowercase;
+    font-weight: bold;
+  }
+  @media (max-width: 500px) {
+    font-size: small;
   }
 }
 .match-card {
@@ -205,10 +229,9 @@ h1 {
     text-align: right;
     font-size: large;
   }
-  .match-day {
+  .match-day,
+  .stage {
     position: absolute;
-    top: -14px;
-    right: -20px;
     background-color: $primary-color;
     padding: 4px;
     border-radius: 4px;
@@ -216,6 +239,15 @@ h1 {
     text-shadow: none;
     outline: 1px black solid;
     outline-offset: -2px;
+  }
+  .match-day {
+    top: -20px;
+    right: -20px;
+  }
+  .stage {
+    top: -20px;
+    right: 60px;
+    text-transform: lowercase;
   }
   @media (max-width: 800px) {
     flex-direction: column;
