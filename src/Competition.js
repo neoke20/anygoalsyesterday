@@ -160,6 +160,7 @@ const Competition = () => {
                             {match.referees.length > 0
                               ? match.referees.map((referee) => (
                                   <li key={referee.id}>
+                                    <i className="far fa-futbol"></i>{" "}
                                     {referee.name} (
                                     <span className="referee-role">
                                       {referee.role.replaceAll("_", " ")}
@@ -219,6 +220,7 @@ const Competition = () => {
                             {match.referees.length > 0
                               ? match.referees.map((referee) => (
                                   <li key={referee.id}>
+                                    <i className="far fa-futbol"></i>{" "}
                                     {referee.name} (
                                     <span className="referee-role">
                                       {referee.role.replaceAll("_", " ")}

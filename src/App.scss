@@ -192,10 +192,14 @@ h1 {
   padding: 4px;
   ul {
     text-align: left;
+    list-style-type: none;
   }
   .referee-role {
     text-transform: lowercase;
     font-weight: bold;
+  }
+  i {
+    font-size: 12px;
   }
   @media (max-width: 500px) {
     font-size: small;
