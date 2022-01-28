@@ -45,6 +45,11 @@ h1 {
 .title-g {
   margin-right: 6px;
 }
+.title-o {
+  @media (max-width: 600px) {
+    padding: 0;
+  }
+}
 #title-y {
   font-family: $title-font;
   font-size: 52px;
