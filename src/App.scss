@@ -38,59 +38,61 @@ h1 {
   letter-spacing: -5px;
   margin-bottom: 0;
 }
-.title-g,
-.title-als {
-  color: $pink;
-}
-.title-g {
-  margin-right: 6px;
-}
-.title-o {
-  @media (max-width: 600px) {
-    padding: 0;
+.title-name {
+  .title-g,
+  .title-als {
+    color: $pink;
   }
-}
-#title-y {
-  font-family: $title-font;
-  font-size: 52px;
-  font-weight: bold;
-  color: $primary-color;
-  margin-top: -25px;
-}
-@-webkit-keyframes rotating /* Safari and Chrome */ {
-  from {
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
+  .title-g {
+    margin-right: 6px;
   }
-  to {
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
+  .title-o {
+    @media (max-width: 600px) {
+      margin-top: -20px;
+    }
   }
-}
-@keyframes rotating {
-  from {
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
+  #title-y {
+    font-family: $title-font;
+    font-size: 52px;
+    font-weight: bold;
+    color: $primary-color;
+    margin-top: -25px;
   }
-  to {
-    -ms-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
+  @-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
   }
-}
-.rotating {
-  -webkit-animation: rotating 10s linear infinite;
-  -moz-animation: rotating 10s linear infinite;
-  -ms-animation: rotating 10s linear infinite;
-  -o-animation: rotating 10s linear infinite;
-  animation: rotating 10s linear infinite;
+  @keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  .rotating {
+    -webkit-animation: rotating 10s linear infinite;
+    -moz-animation: rotating 10s linear infinite;
+    -ms-animation: rotating 10s linear infinite;
+    -o-animation: rotating 10s linear infinite;
+    animation: rotating 10s linear infinite;
+  }
 }
 .competition-card {
   background-size: cover;

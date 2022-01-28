@@ -9,15 +9,17 @@ function App() {
   return (
     <Router>
       <Link className="text-decoration-none" to="/">
-        <h1 className="text-center">
-          Any
-          <span className="title-g">G</span>
-          <img src={ball} alt="Ball" className="rotating title-o"></img>
-          <span className="title-als">als</span>
-        </h1>
-        <h2 className="text-center" id="title-y">
-          Yesterday?
-        </h2>
+        <div className="title-name">
+          <h1 className="text-center">
+            Any
+            <span className="title-g">G</span>
+            <img src={ball} alt="Ball" className="rotating title-o"></img>
+            <span className="title-als">als</span>
+          </h1>
+          <h2 className="text-center" id="title-y">
+            Yesterday?
+          </h2>
+        </div>
       </Link>
       <Routes>
         <Route path="/competition/:id" element={<Competition />} />
