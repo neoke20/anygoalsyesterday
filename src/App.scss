@@ -38,8 +38,12 @@ h1 {
   letter-spacing: -5px;
   margin-bottom: 0;
 }
-#title-g {
+.title-g,
+.title-als {
   color: $pink;
+}
+.title-g {
+  margin-right: 6px;
 }
 #title-y {
   font-family: $title-font;
@@ -47,9 +51,6 @@ h1 {
   font-weight: bold;
   color: $primary-color;
   margin-top: -25px;
-}
-.title-o {
-  padding: 0 4px 16px 4px;
 }
 @-webkit-keyframes rotating /* Safari and Chrome */ {
   from {
@@ -80,11 +81,11 @@ h1 {
   }
 }
 .rotating {
-  -webkit-animation: rotating 2s linear infinite;
-  -moz-animation: rotating 2s linear infinite;
-  -ms-animation: rotating 2s linear infinite;
-  -o-animation: rotating 2s linear infinite;
-  animation: rotating 2s linear infinite;
+  -webkit-animation: rotating 10s linear infinite;
+  -moz-animation: rotating 10s linear infinite;
+  -ms-animation: rotating 10s linear infinite;
+  -o-animation: rotating 10s linear infinite;
+  animation: rotating 10s linear infinite;
 }
 .competition-card {
   background-size: cover;
