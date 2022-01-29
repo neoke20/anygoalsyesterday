@@ -165,15 +165,6 @@ h1 {
 .second-goal-details {
   align-self: center;
 }
-.match-day {
-  top: 4px;
-  right: 4px;
-}
-.stage {
-  top: 4px;
-  right: 80px;
-  text-transform: lowercase;
-}
 .match-card-info {
   background: rgb(47, 163, 141);
   background-image: linear-gradient(
@@ -211,17 +202,6 @@ h1 {
   .schedule-date {
     text-align: right;
     font-size: large;
-  }
-  .match-day,
-  .stage {
-    position: absolute;
-    background-color: $primary-color;
-    padding: 4px;
-    border-radius: 4px;
-    color: $queen-blue;
-    text-shadow: none;
-    outline: 1px black solid;
-    outline-offset: -2px;
   }
   @media (max-width: 800px) {
     flex-direction: column;
@@ -306,17 +286,6 @@ h1 {
     text-align: right;
     font-size: large;
   }
-  .match-day,
-  .stage {
-    position: absolute;
-    background-color: $primary-color;
-    padding: 4px;
-    border-radius: 4px;
-    color: $queen-blue;
-    text-shadow: none;
-    outline: 1px black solid;
-    outline-offset: -2px;
-  }
   @media (max-width: 800px) {
     flex-direction: column;
     margin: 28px 30px;
@@ -333,6 +302,33 @@ h1 {
     .schedule-date {
       text-align: center;
     }
+  }
+}
+.match-day {
+  top: 4px;
+  right: 4px;
+}
+.stage {
+  top: 4px;
+  right: 80px;
+  text-transform: lowercase;
+  @media (max-width: 800px) {
+    left: 4px;
+    max-width: 150px;
+  }
+}
+.match-day,
+.stage {
+  position: absolute;
+  background-color: $primary-color;
+  padding: 4px;
+  border-radius: 4px;
+  color: $queen-blue;
+  text-shadow: none;
+  outline: 1px black solid;
+  outline-offset: -2px;
+  @media (max-width: 800px) {
+    font-size: small;
   }
 }
 .team-names {
