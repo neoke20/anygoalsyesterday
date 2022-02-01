@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // Get t(\d+)(?!.*\d)
 const url = window.location.href;
 const teamID = url.match(/(\d+)(?!.*\d)/);
 
 const Team = () => {
+  const [team, setTeam] = useState([]);
   useEffect(() => {
     requestTeamInfo();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -20,8 +21,14 @@ const Team = () => {
     );
     const json = await res.json();
     console.log(json);
+    setTeam(json);
   }
-  return <h1>Test</h1>;
+  return (
+    <div>
+      <h2 className="text-center">{team.name}</h2>
+      <h3>{team.address}</h3>
+    </div>
+  );
 };
 
 export default Team;
