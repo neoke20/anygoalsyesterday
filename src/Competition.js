@@ -26,7 +26,6 @@ const Competition = () => {
       requestOptions
     );
     const json = await res.json();
-    console.log(json);
     setMatches(json.matches);
     // Gets the latest match day
     const getMatchDay = json.matches[0].season.currentMatchday;
