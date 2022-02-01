@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ball from "./football.png";
 import attacker from "./images/attacker.webp";
 import midfielder from "./images/midfielder.webp";
 import goalkeeper from "./images/goalkeeper.webp";
@@ -43,7 +44,11 @@ const Team = () => {
         <div className="team-details">
           <div id="logo">
             <div className="align-self-center">
-              <img src={team.crestUrl} alt="logo" width={120} />
+              {team.crestUrl ? (
+                <img src={team.crestUrl} alt="logo" width={120} />
+              ) : (
+                <img src={ball} alt="logo" width={60} />
+              )}
             </div>
             <div className="align-self-center">
               <p>Founded in {team.founded}</p>
@@ -161,7 +166,9 @@ const Team = () => {
             >
               <div className="player-name">{player.name}</div>
               <div className="player-bday">
-                {player.dateOfBirth.match(/\d{4}-\d{2}-\d{2}/)}
+                {player.dateOfBirth
+                  ? player.dateOfBirth.match(/\d{4}-\d{2}-\d{2}/)
+                  : null}
               </div>
             </div>
           ) : null
