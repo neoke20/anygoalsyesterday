@@ -434,7 +434,7 @@ h1 {
   padding: 12px;
   border-radius: 4px;
   height: 150px;
-  background-position: right bottom;
+  // background-position: right bottom;
   color: white;
   font-size: 1rem;
   position: relative;
@@ -455,4 +455,17 @@ h1 {
     bottom: 4px;
     right: 8px;
   }
+}
+.position {
+  color: $teal;
+  padding: 0 0 8px 0;
+  // border-bottom: 4px solid
+  // linear-gradient(to right, rgba(200, 200, 200, 1), rgba(0, 0, 0, 0));
+  background: /* gradient can be an image */ linear-gradient(
+      to right,
+      $teal,
+      rgba(0, 0, 0, 0) 50%
+    )
+    left bottom rgba(0, 0, 0, 0) no-repeat;
+  background-size: 100% 5px; /* if linear-gradient, we need to resize it */
 }

@@ -46,13 +46,14 @@ const Team = () => {
           </a>
         </p>
       </div>
-      <h3 className="text-white text-center">Attackers</h3>
+      <h3 className="m-4 position">Attackers</h3>
       <div className="player-grid">
         {squad.map((player) =>
           player.position === "Attacker" ? (
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${attacker})`,
+                backgroundPosition: "bottom",
               }}
               className="player-card"
               key={player.id}
@@ -66,13 +67,14 @@ const Team = () => {
           ) : null
         )}
       </div>
-      <h3 className="text-white text-center">Midfielders</h3>
+      <h3 className="m-4 position">Midfielders</h3>
       <div className="player-grid">
         {squad.map((player) =>
           player.position === "Midfielder" ? (
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${midfielder})`,
+                backgroundPosition: "right bottom",
               }}
               className="player-card"
               key={player.id}
@@ -86,13 +88,14 @@ const Team = () => {
           ) : null
         )}
       </div>
-      <h3 className="text-white text-center">Defenders</h3>
+      <h3 className="m-4 position">Defenders</h3>
       <div className="player-grid">
         {squad.map((player) =>
           player.position === "Defender" ? (
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${defender})`,
+                backgroundPosition: "center",
               }}
               className="player-card"
               key={player.id}
@@ -106,7 +109,7 @@ const Team = () => {
           ) : null
         )}
       </div>
-      <h3 className="text-white text-center">Goalkeepers</h3>
+      <h3 className="m-4 position">Goalkeepers</h3>
       <div className="player-grid">
         {squad.map((player) =>
           player.position === "Goalkeeper" ? (
@@ -126,7 +129,7 @@ const Team = () => {
           ) : null
         )}
       </div>
-      <h3 className="text-white text-center">Undetermined position</h3>
+      <h3 className="m-4 position">Undetermined position</h3>
       <div className="player-grid">
         {squad.map((player) =>
           player.position === null ? (
