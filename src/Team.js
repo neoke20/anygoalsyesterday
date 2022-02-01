@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import attacker from "./images/attacker.webp";
 import midfielder from "./images/midfielder.webp";
 import goalkeeper from "./images/goalkeeper.webp";
@@ -33,21 +34,28 @@ const Team = () => {
   }
   return (
     <div>
+      <Link to="/">
+        <button type="button" className="btn btn-light return">
+          Home
+        </button>
+      </Link>
       <div className="text-center team-card">
         <div className="team-details">
           <div id="logo">
-            <div>
-              <img src={team.crestUrl} alt="logo" height={120} />
+            <div className="align-self-center">
+              <img src={team.crestUrl} alt="logo" width={120} />
             </div>
             <div className="align-self-center">
               <p>Founded in {team.founded}</p>
               <p>Venue: {team.venue}</p>
-              <p>
-                Visit{" "}
-                <a href={team.website} target="_blank" rel="noreferrer">
-                  {team.website.match(/www.*/)}
-                </a>
-              </p>
+              {team.website ? (
+                <p>
+                  Visit{" "}
+                  <a href={team.website} target="_blank" rel="noreferrer">
+                    {team.website.match(/www.*/)}
+                  </a>
+                </p>
+              ) : null}
               <p>Colors: {team.clubColors}</p>
             </div>
           </div>
@@ -159,6 +167,11 @@ const Team = () => {
           ) : null
         )}
       </div>
+      <Link to="/">
+        <button type="button" className="btn btn-light return mt-5">
+          Home
+        </button>
+      </Link>
     </div>
   );
 };

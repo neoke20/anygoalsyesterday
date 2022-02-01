@@ -8,10 +8,8 @@ const TARGETCOMPETITIONS = [
   "DED",
   "PD",
   "PPL",
-  "BSA",
   "ELC",
   "CL",
-  "CLI",
 ];
 
 const Home = () => {
