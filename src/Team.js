@@ -5,7 +5,8 @@ const url = window.location.href;
 const teamID = url.match(/(\d+)(?!.*\d)/);
 
 const Team = () => {
-  const [team, setTeam] = useState([]);
+  const [team, setTeam] = useState("");
+
   useEffect(() => {
     requestTeamInfo();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -24,9 +25,17 @@ const Team = () => {
     setTeam(json);
   }
   return (
-    <div>
-      <h2 className="text-center">{team.name}</h2>
-      <h3>{team.address}</h3>
+    <div className="text-center text-white team-card">
+      <img src={team.crestUrl} alt="logo" height={120} />
+      <h2>{team.name}</h2>
+      <p>Founded in {team.founded}</p>
+      <p>Venue: {team.venue}</p>
+      <p>
+        Visit{" "}
+        <a href={team.website} target="_blank" rel="noreferrer">
+          team's website
+        </a>
+      </p>
     </div>
   );
 };
