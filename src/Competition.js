@@ -14,21 +14,7 @@ const Competition = () => {
 
   useEffect(() => {
     requestMatches();
-    requestTeamMatches();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  async function requestTeamMatches() {
-    const requestOptions = {
-      method: "GET",
-      headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
-    };
-    const res = await fetch(
-      `https://api.football-data.org/v2/teams/516`,
-      requestOptions
-    );
-    const json = await res.json();
-    console.log(json);
-  }
 
   async function requestMatches() {
     const requestOptions = {
