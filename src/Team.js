@@ -57,7 +57,11 @@ const Team = () => {
               className="player-card"
               key={player.id}
             >
-              {player.name} ({player.nationality})
+              <div className="player-name">{player.name}</div>
+              <div className="player-bday">
+                {player.dateOfBirth.match(/\d{4}-\d{2}-\d{2}/)}
+              </div>
+              <div className="player-nationality">({player.nationality})</div>
             </div>
           ) : null
         )}
@@ -67,11 +71,17 @@ const Team = () => {
         {squad.map((player) =>
           player.position === "Midfielder" ? (
             <div
-              style={{ backgroundImage: `url(${midfielder})` }}
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${midfielder})`,
+              }}
               className="player-card"
               key={player.id}
             >
-              {player.name} ({player.nationality})
+              <div className="player-name">{player.name}</div>
+              <div className="player-bday">
+                {player.dateOfBirth.match(/\d{4}-\d{2}-\d{2}/)}
+              </div>
+              <div className="player-nationality">({player.nationality})</div>
             </div>
           ) : null
         )}
@@ -81,11 +91,17 @@ const Team = () => {
         {squad.map((player) =>
           player.position === "Defender" ? (
             <div
-              style={{ backgroundImage: `url(${defender})` }}
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${defender})`,
+              }}
               className="player-card"
               key={player.id}
             >
-              {player.name} ({player.nationality})
+              <div className="player-name">{player.name}</div>
+              <div className="player-bday">
+                {player.dateOfBirth.match(/\d{4}-\d{2}-\d{2}/)}
+              </div>
+              <div className="player-nationality">({player.nationality})</div>
             </div>
           ) : null
         )}
@@ -95,11 +111,17 @@ const Team = () => {
         {squad.map((player) =>
           player.position === "Goalkeeper" ? (
             <div
-              style={{ backgroundImage: `url(${goalkeeper})` }}
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${goalkeeper})`,
+              }}
               className="player-card"
               key={player.id}
             >
-              {player.name} ({player.nationality})
+              <div className="player-name">{player.name}</div>
+              <div className="player-bday">
+                {player.dateOfBirth.match(/\d{4}-\d{2}-\d{2}/)}
+              </div>
+              <div className="player-nationality">({player.nationality})</div>
             </div>
           ) : null
         )}
@@ -110,12 +132,15 @@ const Team = () => {
           player.position === null ? (
             <div
               style={{
-                backgroundImage: `url(${undefined}), linearGradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${undefined})`,
               }}
               className="player-card"
               key={player.id}
             >
-              {player.name}
+              <div className="player-name">{player.name}</div>
+              <div className="player-bday">
+                {player.dateOfBirth.match(/\d{4}-\d{2}-\d{2}/)}
+              </div>
             </div>
           ) : null
         )}
