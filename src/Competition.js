@@ -26,7 +26,6 @@ const Competition = () => {
       requestOptions
     );
     const json = await res.json();
-    console.log(json);
     setMatches(json.matches);
     // Gets the latest match day
     const getMatchDay = json.matches[0].season.currentMatchday;
@@ -75,9 +74,19 @@ const Competition = () => {
               <div className="match-card-yes" key={match.id}>
                 <div className="match-card-info">
                   <div className="flex-grow-1 team-names">
-                    <h3>{match.homeTeam.name}</h3>
+                    <a href={`team/${match.homeTeam.id}`}>
+                      <h3>
+                        {match.homeTeam.name}
+                        <span className="more-info">+more</span>
+                      </h3>
+                    </a>
                     <strong>VS</strong>
-                    <h3>{match.awayTeam.name}</h3>
+                    <a href={`team/${match.awayTeam.id}`}>
+                      <h3>
+                        {match.awayTeam.name}
+                        <span className="more-info">+more</span>
+                      </h3>
+                    </a>
                   </div>
                   <div className="text-center match-result">
                     <h5 className="match-day">Day {match.matchday}</h5>
@@ -180,9 +189,19 @@ const Competition = () => {
               <div className="match-card-no" key={match.id}>
                 <div className="match-card-info">
                   <div className="flex-grow-1 team-names">
-                    <h3>{match.homeTeam.name}</h3>
+                    <a href={`team/${match.homeTeam.id}`}>
+                      <h3>
+                        {match.homeTeam.name}
+                        <span className="more-info">+more</span>
+                      </h3>
+                    </a>
                     <strong>VS</strong>
-                    <h3>{match.awayTeam.name}</h3>
+                    <a href={`team/${match.awayTeam.id}`}>
+                      <h3>
+                        {match.awayTeam.name}
+                        <span className="more-info">+more</span>
+                      </h3>
+                    </a>
                   </div>
                   <div className="text-center match-result">
                     <h5 className="match-day">Day {match.matchday}</h5>
@@ -240,9 +259,19 @@ const Competition = () => {
           ) : match.status === "CANCELLED" ? (
             <div className="match-card" key={match.id}>
               <div className="flex-grow-1 team-names">
-                <h3>{match.homeTeam.name}</h3>
+                <a href={`team/${match.homeTeam.id}`}>
+                  <h3>
+                    {match.homeTeam.name}
+                    <span className="more-info">+more</span>
+                  </h3>
+                </a>
                 <strong>VS</strong>
-                <h3>{match.awayTeam.name}</h3>
+                <a href={`team/${match.awayTeam.id}`}>
+                  <h3>
+                    {match.awayTeam.name}
+                    <span className="more-info">+more</span>
+                  </h3>
+                </a>
               </div>
               <div className="text-center match-result">
                 <h5 className="match-day">Day {match.matchday}</h5>
@@ -254,9 +283,19 @@ const Competition = () => {
           ) : match.status === "SCHEDULED" ? (
             <div className="match-card" key={match.id}>
               <div className="flex-grow-1 team-names">
-                <h3>{match.homeTeam.name}</h3>
+                <a href={`team/${match.homeTeam.id}`}>
+                  <h3>
+                    {match.homeTeam.name}
+                    <span className="more-info">+more</span>
+                  </h3>
+                </a>
                 <strong>VS</strong>
-                <h3>{match.awayTeam.name}</h3>
+                <a href={`team/${match.awayTeam.id}`}>
+                  <h3>
+                    {match.awayTeam.name}
+                    <span className="more-info">+more</span>
+                  </h3>
+                </a>
               </div>
               <div className="text-center match-result">
                 <h5 className="match-day">Day {match.matchday}</h5>
@@ -273,9 +312,19 @@ const Competition = () => {
           ) : (
             <div className="match-card" key={match.id}>
               <div className="flex-grow-1 team-names">
-                <h3>{match.homeTeam.name}</h3>
+                <a href={`team/${match.homeTeam.id}`}>
+                  <h3>
+                    {match.homeTeam.name}
+                    <span className="more-info">+more</span>
+                  </h3>
+                </a>
                 <strong>VS</strong>
-                <h3>{match.awayTeam.name}</h3>
+                <a href={`team/${match.awayTeam.id}`}>
+                  <h3>
+                    {match.awayTeam.name}
+                    <span className="more-info">+more</span>
+                  </h3>
+                </a>
               </div>
               <div className="text-center match-result">
                 <h5 className="match-day">Day {match.matchday}</h5>
