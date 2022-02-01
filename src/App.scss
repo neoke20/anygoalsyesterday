@@ -418,3 +418,23 @@ h1 {
   }
 }
 // Styling for the team page
+.player-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 12px;
+  padding: 0 12px 0 12px;
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
+}
+.player-card {
+  padding: 12px;
+  border-radius: 4px;
+  height: 150px;
+  background-position: bottom;
+  color: white;
+  font-size: 1rem;
+}

@@ -1,4 +1,9 @@
 import { useEffect, useState } from "react";
+import attacker from "./images/attacker.webp";
+import midfielder from "./images/midfielder.webp";
+import goalkeeper from "./images/goalkeeper.webp";
+import defender from "./images/defender.webp";
+import undefined from "./images/undefined.webp";
 
 // Get t(\d+)(?!.*\d)
 const url = window.location.href;
@@ -45,7 +50,13 @@ const Team = () => {
       <div className="player-grid">
         {squad.map((player) =>
           player.position === "Attacker" ? (
-            <div className="player-card" key={player.id}>
+            <div
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${attacker})`,
+              }}
+              className="player-card"
+              key={player.id}
+            >
               {player.name} ({player.nationality})
             </div>
           ) : null
@@ -55,7 +66,11 @@ const Team = () => {
       <div className="player-grid">
         {squad.map((player) =>
           player.position === "Midfielder" ? (
-            <div key={player.id}>
+            <div
+              style={{ backgroundImage: `url(${midfielder})` }}
+              className="player-card"
+              key={player.id}
+            >
               {player.name} ({player.nationality})
             </div>
           ) : null
@@ -65,7 +80,11 @@ const Team = () => {
       <div className="player-grid">
         {squad.map((player) =>
           player.position === "Defender" ? (
-            <div key={player.id}>
+            <div
+              style={{ backgroundImage: `url(${defender})` }}
+              className="player-card"
+              key={player.id}
+            >
               {player.name} ({player.nationality})
             </div>
           ) : null
@@ -75,7 +94,11 @@ const Team = () => {
       <div className="player-grid">
         {squad.map((player) =>
           player.position === "Goalkeeper" ? (
-            <div key={player.id}>
+            <div
+              style={{ backgroundImage: `url(${goalkeeper})` }}
+              className="player-card"
+              key={player.id}
+            >
               {player.name} ({player.nationality})
             </div>
           ) : null
@@ -85,7 +108,15 @@ const Team = () => {
       <div className="player-grid">
         {squad.map((player) =>
           player.position === null ? (
-            <div key={player.id}>{player.name}</div>
+            <div
+              style={{
+                backgroundImage: `url(${undefined}), linearGradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))`,
+              }}
+              className="player-card"
+              key={player.id}
+            >
+              {player.name}
+            </div>
           ) : null
         )}
       </div>
