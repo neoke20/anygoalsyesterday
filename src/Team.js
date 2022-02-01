@@ -33,18 +33,29 @@ const Team = () => {
   }
   return (
     <div>
-      <div className="text-center text-white team-card">
-        <img src={team.crestUrl} alt="logo" height={120} />
-        <h2>{team.name}</h2>
-        <p>{team.address}</p>
-        <p>Founded in {team.founded}</p>
-        <p>Venue: {team.venue}</p>
-        <p>
-          Visit{" "}
-          <a href={team.website} target="_blank" rel="noreferrer">
-            team's website
-          </a>
-        </p>
+      <div className="text-center team-card">
+        <div className="team-details">
+          <div id="logo">
+            <div>
+              <img src={team.crestUrl} alt="logo" height={120} />
+            </div>
+            <div className="align-self-center">
+              <p>Founded in {team.founded}</p>
+              <p>Venue: {team.venue}</p>
+              <p>
+                Visit{" "}
+                <a href={team.website} target="_blank" rel="noreferrer">
+                  {team.website.match(/www.*/)}
+                </a>
+              </p>
+              <p>Colors: {team.clubColors}</p>
+            </div>
+          </div>
+          <div className="details">
+            <h2>{team.name}</h2>
+            <p>{team.address}</p>
+          </div>
+        </div>
       </div>
       <h3 className="m-4 position">Attackers</h3>
       <div className="player-grid">

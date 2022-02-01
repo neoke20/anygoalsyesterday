@@ -469,3 +469,36 @@ h1 {
     left bottom rgba(0, 0, 0, 0) no-repeat;
   background-size: 100% 5px; /* if linear-gradient, we need to resize it */
 }
+.team-card {
+  display: flex;
+  justify-content: center;
+}
+.team-details {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 12px;
+  #logo {
+    background-color: white;
+    border-radius: 4px 4px 0 0;
+    padding: 12px 30px;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    font-size: small;
+    box-shadow: 2px 2px 14px rgba(200, 200, 200, 0.6);
+    img {
+      margin-right: 12px;
+    }
+  }
+  .details {
+    color: $primary-color;
+    padding: 12px;
+    border: 2px solid white;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 2px 2px 14px rgba(200, 200, 200, 0.6);
+    p {
+      font-size: small;
+    }
+  }
+}
