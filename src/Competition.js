@@ -48,7 +48,6 @@ const Competition = () => {
       requestOptions
     );
     const json = await res.json();
-    console.log(json.standings);
     setStandings(json.standings[0].table);
   }
   const handleSubmit = (e) => {
@@ -93,8 +92,8 @@ const Competition = () => {
             >
               Show Table
             </button>
-            <div id="ranking-table" className="container bg-white d-none">
-              <table className="table table-striped table-hover">
+            <div id="ranking-table" className="d-none">
+              <table className="container table table-light table-striped table-hover">
                 <thead>
                   <tr>
                     <th>#</th>
