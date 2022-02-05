@@ -11,9 +11,11 @@ const Competition = () => {
   const [allMatchDays, updateAllMatchDays] = useState([]);
   const [matches, setMatches] = useState([]);
   const [matchDay, updateMatchDay] = useState(matchDayNumber[0]);
+  const [standings, setStandings] = useState([]);
 
   useEffect(() => {
     requestMatches();
+    requestTable();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function requestMatches() {
@@ -35,6 +37,19 @@ const Competition = () => {
     // Remove the 0 from the array
     allDays.shift();
     updateAllMatchDays(allDays);
+  }
+  async function requestTable() {
+    const requestOptions = {
+      method: "GET",
+      headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
+    };
+    const res = await fetch(
+      `https://api.football-data.org/v2/competitions/${competitionCode[0]}/standings`,
+      requestOptions
+    );
+    const json = await res.json();
+    console.log(json);
+    setStandings(json.standings);
   }
   const handleSubmit = (e) => {
     e.preventDefault();
