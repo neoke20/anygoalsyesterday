@@ -82,31 +82,42 @@ const Competition = () => {
           <button id="submit">Check Goals!</button>
         </form>
         {standings.length > 0 ? (
-          <div className="container bg-white">
-            <table className="table table-striped table-hover">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Team</th>
-                  <th>Won</th>
-                  <th>Lost</th>
-                  <th>Draw</th>
-                  <th>Points</th>
-                </tr>
-              </thead>
-              <tbody>
-                {standings.map((team) => (
-                  <tr key={team.id}>
-                    <th key={`position-${team.id}`}>{team.position}</th>
-                    <th key={`name-${team.id}`}>{team.team.name}</th>
-                    <th key={`won-${team.id}`}>{team.won}</th>
-                    <th key={`lost-${team.id}`}>{team.lost}</th>
-                    <th key={`draw-${team.id}`}>{team.draw}</th>
-                    <th key={`points-${team.id}`}>{team.points}</th>
+          <div>
+            <button
+              onClick={() =>
+                document
+                  .getElementById("ranking-table")
+                  .classList.toggle("d-none")
+              }
+            >
+              Show Table
+            </button>
+            <div id="ranking-table" className="container bg-white d-none">
+              <table className="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Team</th>
+                    <th>Won</th>
+                    <th>Lost</th>
+                    <th>Draw</th>
+                    <th>Points</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {standings.map((team) => (
+                    <tr key={team.id}>
+                      <th key={`position-${team.id}`}>{team.position}</th>
+                      <th key={`name-${team.id}`}>{team.team.name}</th>
+                      <th key={`won-${team.id}`}>{team.won}</th>
+                      <th key={`lost-${team.id}`}>{team.lost}</th>
+                      <th key={`draw-${team.id}`}>{team.draw}</th>
+                      <th key={`points-${team.id}`}>{team.points}</th>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         ) : null}
         {matches.map((match) =>
