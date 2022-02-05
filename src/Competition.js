@@ -11,9 +11,11 @@ const Competition = () => {
   const [allMatchDays, updateAllMatchDays] = useState([]);
   const [matches, setMatches] = useState([]);
   const [matchDay, updateMatchDay] = useState(matchDayNumber[0]);
+  const [standings, setStandings] = useState([]);
 
   useEffect(() => {
     requestMatches();
+    requestTable();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function requestMatches() {
@@ -35,6 +37,18 @@ const Competition = () => {
     // Remove the 0 from the array
     allDays.shift();
     updateAllMatchDays(allDays);
+  }
+  async function requestTable() {
+    const requestOptions = {
+      method: "GET",
+      headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
+    };
+    const res = await fetch(
+      `https://api.football-data.org/v2/competitions/${competitionCode[0]}/standings`,
+      requestOptions
+    );
+    const json = await res.json();
+    setStandings(json.standings[0].table);
   }
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -66,6 +80,46 @@ const Competition = () => {
           </label>
           <button id="submit">Check Goals!</button>
         </form>
+        {standings.length > 0 ? (
+          <div>
+            <button
+              id="show-table"
+              onClick={() =>
+                document
+                  .getElementById("ranking-table")
+                  .classList.toggle("d-none")
+              }
+            >
+              Show Table
+            </button>
+            <div id="ranking-table" className="d-none">
+              <table className="container table table-light table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Team</th>
+                    <th>Won</th>
+                    <th>Lost</th>
+                    <th>Draw</th>
+                    <th>Points</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {standings.map((team) => (
+                    <tr key={team.id}>
+                      <th key={`position-${team.id}`}>{team.position}</th>
+                      <th key={`name-${team.id}`}>{team.team.name}</th>
+                      <th key={`won-${team.id}`}>{team.won}</th>
+                      <th key={`lost-${team.id}`}>{team.lost}</th>
+                      <th key={`draw-${team.id}`}>{team.draw}</th>
+                      <th key={`points-${team.id}`}>{team.points}</th>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ) : null}
         {matches.map((match) =>
           match.status === "FINISHED" ? (
             // Check if there were goals, and displays yes if there were any
