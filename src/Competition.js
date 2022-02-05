@@ -81,32 +81,34 @@ const Competition = () => {
           </label>
           <button id="submit">Check Goals!</button>
         </form>
-        <div className="container">
-          <table className="table text-white">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Team</th>
-                <th>Won</th>
-                <th>Lost</th>
-                <th>Draw</th>
-                <th>Points</th>
-              </tr>
-            </thead>
-            <tbody>
-              {standings.map((team) => (
-                <tr key={team.id}>
-                  <th key={`position-${team.id}`}>{team.position}</th>
-                  <th key={`name-${team.id}`}>{team.team.name}</th>
-                  <th key={`won-${team.id}`}>{team.won}</th>
-                  <th key={`lost-${team.id}`}>{team.lost}</th>
-                  <th key={`draw-${team.id}`}>{team.draw}</th>
-                  <th key={`points-${team.id}`}>{team.points}</th>
+        {standings.length > 0 ? (
+          <div className="container bg-white">
+            <table className="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Team</th>
+                  <th>Won</th>
+                  <th>Lost</th>
+                  <th>Draw</th>
+                  <th>Points</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {standings.map((team) => (
+                  <tr key={team.id}>
+                    <th key={`position-${team.id}`}>{team.position}</th>
+                    <th key={`name-${team.id}`}>{team.team.name}</th>
+                    <th key={`won-${team.id}`}>{team.won}</th>
+                    <th key={`lost-${team.id}`}>{team.lost}</th>
+                    <th key={`draw-${team.id}`}>{team.draw}</th>
+                    <th key={`points-${team.id}`}>{team.points}</th>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : null}
         {matches.map((match) =>
           match.status === "FINISHED" ? (
             // Check if there were goals, and displays yes if there were any
