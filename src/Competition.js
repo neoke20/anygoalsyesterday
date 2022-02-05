@@ -48,8 +48,8 @@ const Competition = () => {
       requestOptions
     );
     const json = await res.json();
-    console.log(json);
-    setStandings(json.standings);
+    console.log(json.standings);
+    setStandings(json.standings[0].table);
   }
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -57,6 +57,7 @@ const Competition = () => {
   };
   return (
     <div>
+      {console.log(standings)}
       <Link to="/">
         <button type="button" className="btn btn-light return">
           Return
