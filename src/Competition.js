@@ -57,7 +57,6 @@ const Competition = () => {
   };
   return (
     <div>
-      {console.log(standings)}
       <Link to="/">
         <button type="button" className="btn btn-light return">
           Return
@@ -82,6 +81,28 @@ const Competition = () => {
           </label>
           <button id="submit">Check Goals!</button>
         </form>
+        <div>
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Team</th>
+                <th>Won</th>
+                <th>Lost</th>
+                <th>Draw</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              {standings.map((team) => (
+                <tr>
+                  <th>{team.position}</th>
+                  <th>{team.team.name}</th>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
         {matches.map((match) =>
           match.status === "FINISHED" ? (
             // Check if there were goals, and displays yes if there were any
