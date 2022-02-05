@@ -84,6 +84,7 @@ const Competition = () => {
         {standings.length > 0 ? (
           <div>
             <button
+              id="show-table"
               onClick={() =>
                 document
                   .getElementById("ranking-table")

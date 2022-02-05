@@ -17,8 +17,8 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-button#submit {
-  margin-left: 10px;
+button#submit,
+button#show-table {
   border-radius: 4px;
   background-color: white;
   border: 1px solid black;
@@ -27,6 +27,13 @@ button#submit {
     color: white;
     border: 1px solid white;
   }
+}
+button#submit {
+  margin-left: 10px;
+}
+button#show-table {
+  margin: 12px 0 12px 0;
+  width: 200px;
 }
 h1 {
   padding: 20px 0 0 0;
