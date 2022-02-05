@@ -81,8 +81,8 @@ const Competition = () => {
           </label>
           <button id="submit">Check Goals!</button>
         </form>
-        <div>
-          <table className="table table-striped">
+        <div className="container">
+          <table className="table text-white">
             <thead>
               <tr>
                 <th>#</th>
@@ -95,9 +95,13 @@ const Competition = () => {
             </thead>
             <tbody>
               {standings.map((team) => (
-                <tr>
-                  <th>{team.position}</th>
-                  <th>{team.team.name}</th>
+                <tr key={team.id}>
+                  <th key={`position-${team.id}`}>{team.position}</th>
+                  <th key={`name-${team.id}`}>{team.team.name}</th>
+                  <th key={`won-${team.id}`}>{team.won}</th>
+                  <th key={`lost-${team.id}`}>{team.lost}</th>
+                  <th key={`draw-${team.id}`}>{team.draw}</th>
+                  <th key={`points-${team.id}`}>{team.points}</th>
                 </tr>
               ))}
             </tbody>
