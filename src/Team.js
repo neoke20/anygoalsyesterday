@@ -29,6 +29,7 @@ const Team = () => {
       requestOptions
     );
     const json = await res.json();
+    console.log(json);
     setTeam(json);
     setSquad(json.squad);
   }
@@ -65,7 +66,7 @@ const Team = () => {
           </div>
           <div className="details">
             <h2>{team.name}</h2>
-            <p>{team.address}</p>
+            <p>{team.address.replace(null, "")}</p>
           </div>
         </div>
       </div>
