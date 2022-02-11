@@ -14,7 +14,7 @@ The first page will list the competitions available (currenlty using the free ve
 
 When users end up on the page, the latest matchday is displayed depending on what the API considers to be the latest match day (usually updates 1 or 2 days before the actual matchday, and shows matches as scheduled).
 
-When matches have been played, if there were goals, the card for a specific game will display "yes" or "no" depending on whether there were goals or not. The user can choose to check whether there were goals in the first and/or second half by accessing an accordion menu. The answer is hidden until the user chooses to reveal it.
+When matches have been played, the card for a specific match will display "yes" or "no" depending on whether there were goals or not. The user can choose to check whether there were goals in the first and/or second half by accessing an accordion menu. The answer is hidden until the user chooses to reveal it.
 
 All matches that have been cancelled, postponed, are in play are shown as such until the API returns a different status.
 
