@@ -84,7 +84,7 @@ const Team = () => {
             >
               <div className="player-name">{player.name}</div>
               <div className="player-bday">
-                {player.dateOfBirth.match(/\d{4}-\d{2}-\d{2}/)}
+                {player.dateOfBirth.substr(0, 10)}
               </div>
               <div className="player-nationality">({player.nationality})</div>
             </div>
@@ -105,7 +105,7 @@ const Team = () => {
             >
               <div className="player-name">{player.name}</div>
               <div className="player-bday">
-                {player.dateOfBirth.match(/\d{4}-\d{2}-\d{2}/)}
+                {player.dateOfBirth.substr(0, 10)}
               </div>
               <div className="player-nationality">({player.nationality})</div>
             </div>
@@ -126,7 +126,7 @@ const Team = () => {
             >
               <div className="player-name">{player.name}</div>
               <div className="player-bday">
-                {player.dateOfBirth.match(/\d{4}-\d{2}-\d{2}/)}
+                {player.dateOfBirth.substr(0, 10)}
               </div>
               <div className="player-nationality">({player.nationality})</div>
             </div>
@@ -146,7 +146,7 @@ const Team = () => {
             >
               <div className="player-name">{player.name}</div>
               <div className="player-bday">
-                {player.dateOfBirth.match(/\d{4}-\d{2}-\d{2}/)}
+                {player.dateOfBirth.substr(0, 10)}
               </div>
               <div className="player-nationality">({player.nationality})</div>
             </div>
@@ -166,9 +166,7 @@ const Team = () => {
             >
               <div className="player-name">{player.name}</div>
               <div className="player-bday">
-                {player.dateOfBirth
-                  ? player.dateOfBirth.match(/\d{4}-\d{2}-\d{2}/)
-                  : null}
+                {player.dateOfBirth ? player.dateOfBirth.substr(0, 10) : null}
               </div>
             </div>
           ) : null
