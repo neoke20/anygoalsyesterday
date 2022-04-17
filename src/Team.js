@@ -33,6 +33,11 @@ const Team = () => {
     setTeam(json);
     setSquad(json.squad);
   }
+  function playerAge(year, month, day) {
+    const today = new Date();
+    const bday = new Date(year, month - 1, day);
+    return String(Math.floor((today - bday) / 31556952000));
+  }
   return (
     <div>
       <Link to="/">
@@ -84,7 +89,13 @@ const Team = () => {
             >
               <div className="player-name">{player.name}</div>
               <div className="player-bday">
-                {player.dateOfBirth.substr(0, 10)}
+                {player.dateOfBirth.substr(0, 10)}(
+                {playerAge(
+                  player.dateOfBirth.substr(0, 4),
+                  player.dateOfBirth.substr(5, 2),
+                  player.dateOfBirth.substr(8, 2)
+                )}
+                )
               </div>
               <div className="player-nationality">({player.nationality})</div>
             </div>
