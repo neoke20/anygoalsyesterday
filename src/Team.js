@@ -89,13 +89,16 @@ const Team = () => {
             >
               <div className="player-name">{player.name}</div>
               <div className="player-bday">
-                {player.dateOfBirth.substr(0, 10)}(
-                {playerAge(
-                  player.dateOfBirth.substr(0, 4),
-                  player.dateOfBirth.substr(5, 2),
-                  player.dateOfBirth.substr(8, 2)
-                )}
-                )
+                {player.dateOfBirth.substr(0, 10)}{" "}
+                <strong>
+                  (
+                  {playerAge(
+                    player.dateOfBirth.substr(0, 4),
+                    player.dateOfBirth.substr(5, 2),
+                    player.dateOfBirth.substr(8, 2)
+                  )}
+                  )
+                </strong>
               </div>
               <div className="player-nationality">({player.nationality})</div>
             </div>
@@ -116,7 +119,16 @@ const Team = () => {
             >
               <div className="player-name">{player.name}</div>
               <div className="player-bday">
-                {player.dateOfBirth.substr(0, 10)}
+                {player.dateOfBirth.substr(0, 10)}{" "}
+                <strong>
+                  (
+                  {playerAge(
+                    player.dateOfBirth.substr(0, 4),
+                    player.dateOfBirth.substr(5, 2),
+                    player.dateOfBirth.substr(8, 2)
+                  )}
+                  )
+                </strong>
               </div>
               <div className="player-nationality">({player.nationality})</div>
             </div>
@@ -137,7 +149,16 @@ const Team = () => {
             >
               <div className="player-name">{player.name}</div>
               <div className="player-bday">
-                {player.dateOfBirth.substr(0, 10)}
+                {player.dateOfBirth.substr(0, 10)}{" "}
+                <strong>
+                  (
+                  {playerAge(
+                    player.dateOfBirth.substr(0, 4),
+                    player.dateOfBirth.substr(5, 2),
+                    player.dateOfBirth.substr(8, 2)
+                  )}
+                  )
+                </strong>
               </div>
               <div className="player-nationality">({player.nationality})</div>
             </div>
@@ -157,7 +178,16 @@ const Team = () => {
             >
               <div className="player-name">{player.name}</div>
               <div className="player-bday">
-                {player.dateOfBirth.substr(0, 10)}
+                {player.dateOfBirth.substr(0, 10)}{" "}
+                <strong>
+                  (
+                  {playerAge(
+                    player.dateOfBirth.substr(0, 4),
+                    player.dateOfBirth.substr(5, 2),
+                    player.dateOfBirth.substr(8, 2)
+                  )}
+                  )
+                </strong>
               </div>
               <div className="player-nationality">({player.nationality})</div>
             </div>
