@@ -29,6 +29,7 @@ const Team = () => {
       requestOptions
     );
     const json = await res.json();
+    console.log(json);
     setTeam(json);
     setSquad(json.squad);
   }
@@ -72,7 +73,7 @@ const Team = () => {
       <h3 className="m-4 position">Attackers</h3>
       <div className="player-grid">
         {squad.map((player) =>
-          player.position === "Attacker" ? (
+          player.position === "Offence" ? (
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${attacker})`,
@@ -93,7 +94,7 @@ const Team = () => {
       <h3 className="m-4 position">Midfielders</h3>
       <div className="player-grid">
         {squad.map((player) =>
-          player.position === "Midfielder" ? (
+          player.position === "Midfield" ? (
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${midfielder})`,
@@ -114,7 +115,7 @@ const Team = () => {
       <h3 className="m-4 position">Defenders</h3>
       <div className="player-grid">
         {squad.map((player) =>
-          player.position === "Defender" ? (
+          player.position === "Defence" ? (
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${defender})`,
