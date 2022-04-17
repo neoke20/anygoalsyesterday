@@ -29,7 +29,6 @@ const Team = () => {
       requestOptions
     );
     const json = await res.json();
-    console.log(json);
     setTeam(json);
     setSquad(json.squad);
   }

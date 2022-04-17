@@ -9,7 +9,6 @@ const TARGETCOMPETITIONS = [
   "PD",
   "PPL",
   "ELC",
-  "CL",
 ];
 
 const Home = () => {
