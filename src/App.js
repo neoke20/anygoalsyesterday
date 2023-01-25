@@ -4,6 +4,7 @@ import Home from "./Home";
 import Competition from "./Competition";
 import Team from "./Team";
 import Footer from "./Footer";
+import Person from "./Person";
 import ball from "./football.png";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/competition/:id" element={<Competition />} />
         <Route path="/" element={<Home />} />
         <Route path="competition/team/:id" element={<Team />} />
+        <Route path="person" element={<Person />} />
       </Routes>
       <Footer />
     </Router>
