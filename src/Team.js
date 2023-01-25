@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import ball from "./football.png";
 import attacker from "./images/attacker.webp";
@@ -15,6 +16,13 @@ const teamID = url.match(/(\d+)(?!.*\d)/);
 const Team = () => {
   const [team, setTeam] = useState("");
   const [squad, setSquad] = useState([]);
+
+  const navigate = useNavigate();
+
+  function handleClick() {
+        navigate(-1);
+    }
+
 
   useEffect(() => {
     requestTeamInfo();
@@ -40,11 +48,7 @@ const Team = () => {
   }
   return (
     <div>
-      <Link to="/">
-        <button type="button" className="btn btn-light return">
-          Home
-        </button>
-      </Link>
+      <button className="back-button" onClick={handleClick}>Go Back</button>
       <div className="text-center team-card">
         <div className="team-details">
           <div id="logo">
@@ -242,12 +246,8 @@ const Team = () => {
           ) : null
         )}
       </div>
-      <Link to="/">
-        <button type="button" className="btn btn-light return mt-5">
-          Home
-        </button>
-      </Link>
-    </div>
+        <button className="back-button" onClick={handleClick}>Go Back</button>
+      </div>
   );
 };
 
