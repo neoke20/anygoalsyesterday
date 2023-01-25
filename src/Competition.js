@@ -12,6 +12,7 @@ const Competition = () => {
   const [matches, setMatches] = useState([]);
   const [matchDay, updateMatchDay] = useState(matchDayNumber[0]);
   const [standings, setStandings] = useState([]);
+  const [stage, setStage] = useState([]);
 
   useEffect(() => {
     requestMatches();
@@ -29,6 +30,8 @@ const Competition = () => {
     );
     const json = await res.json();
     setMatches(json.matches);
+    // Get the stage of the competition
+    setStage(json.matches[0].stage.replaceAll("_", " ").toLowerCase());
     // Gets the latest match day
     const getMatchDay = json.matches[0].season.currentMatchday;
     updateMatchDay(getMatchDay);
@@ -120,15 +123,13 @@ const Competition = () => {
             </div>
           </div>
         ) : null}
-        <div><p>Match day: {matchDay}</p></div>
+        <div className="d-flex justify-content-center text-white"><p className="p-2"><strong>Match day:</strong> {matchDay}</p><p className="p-2"><strong>Stage:</strong> {stage}</p></div>
         {matches.map((match) =>
           match.status === "FINISHED" ? (
             // Check if there were goals, and displays yes if there were any
             match.score.fullTime.awayTeam + match.score.fullTime.homeTeam >
             0 ? (
               <div className="match-card-yes" key={match.id}>
-                {/* <h5 className="match-day">Day {match.matchday}</h5>
-                <h5 className="stage">{match.stage.replaceAll("_", " ")}</h5> */}
                 <div className="match-card-info">
                   <div className="flex-grow-1 team-names">
                     <a href={`team/${match.homeTeam.id}`}>
