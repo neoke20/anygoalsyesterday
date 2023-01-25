@@ -48,7 +48,7 @@ const Team = () => {
   }
   return (
     <div>
-      <button className="back-button" onClick={handleClick}>Go Back</button>
+      <button className="btn btn-light return" onClick={handleClick}>Return</button>
       <div className="text-center team-card">
         <div className="team-details">
           <div id="logo">
@@ -246,7 +246,7 @@ const Team = () => {
           ) : null
         )}
       </div>
-        <button className="back-button" onClick={handleClick}>Go Back</button>
+        <button className="btn btn-light return mt-4" onClick={handleClick}>Return</button>
       </div>
   );
 };
