@@ -12,6 +12,7 @@ const Competition = () => {
   const [matches, setMatches] = useState([]);
   const [matchDay, updateMatchDay] = useState(matchDayNumber[0]);
   const [standings, setStandings] = useState([]);
+  const [stage, setStage] = useState([]);
 
   useEffect(() => {
     requestMatches();
@@ -29,6 +30,8 @@ const Competition = () => {
     );
     const json = await res.json();
     setMatches(json.matches);
+    // Get the stage of the competition
+    setStage(json.matches[0].stage.replaceAll("_", " ").toLowerCase());
     // Gets the latest match day
     const getMatchDay = json.matches[0].season.currentMatchday;
     updateMatchDay(getMatchDay);
@@ -120,6 +123,7 @@ const Competition = () => {
             </div>
           </div>
         ) : null}
+        <div className="d-flex justify-content-center text-white"><p className="p-2"><strong>Match day:</strong> {matchDay}</p><p className="p-2"><strong>Stage:</strong> {stage}</p></div>
         {matches.map((match) =>
           match.status === "FINISHED" ? (
             // Check if there were goals, and displays yes if there were any
@@ -143,10 +147,6 @@ const Competition = () => {
                     </a>
                   </div>
                   <div className="text-center match-result">
-                    <h5 className="match-day">Day {match.matchday}</h5>
-                    <h5 className="stage">
-                      {match.stage.replaceAll("_", " ")}
-                    </h5>
                     <h4 className="pt-3">Were there any goals:</h4>
                     <h5>Yes</h5>
                   </div>
@@ -258,12 +258,8 @@ const Competition = () => {
                     </a>
                   </div>
                   <div className="text-center match-result">
-                    <h5 className="match-day">Day {match.matchday}</h5>
-                    <h5 className="stage">
-                      {match.stage.replaceAll("_", " ")}
-                    </h5>
                     <h4 className="pt-3">Were there any goals:</h4>
-                    <h5 style={{ color: "#FF4081" }}>No</h5>
+                    <h5 style={{ color: "#FF4081", textShadow: "2px 2px 4px rgba(0,0,0,0.4)" }}>No</h5>
                   </div>
                 </div>
                 <div className="accordion" id={`accordionExample${match.id}`}>
@@ -352,9 +348,7 @@ const Competition = () => {
                 </a>
               </div>
               <div className="text-center match-result">
-                <h5 className="match-day">Day {match.matchday}</h5>
-                <h5 className="stage">{match.stage.replaceAll("_", " ")}</h5>
-                <h4 className="pt-5">Were there any goals:</h4>
+                <h4 className="">Were there any goals:</h4>
                 <h5 style={{ lineHeight: "2rem" }}>
                   <mark>Scheduled</mark>
                 </h5>
@@ -381,8 +375,6 @@ const Competition = () => {
                 </a>
               </div>
               <div className="text-center match-result">
-                <h5 className="match-day">Day {match.matchday}</h5>
-                <h5 className="stage">{match.stage.replaceAll("_", " ")}</h5>
                 <h4 className="pt-3">Were there any goals:</h4>
                 <h5>
                   <mark>{match.status.replaceAll("_", " ").toUpperCase()}</mark>
@@ -407,108 +399,3 @@ const Competition = () => {
 };
 
 export default Competition;
-
-// OLD API CALL
-// $.ajax({
-//   headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
-//   url: `https://api.football-data.org/v2/competitions/${competitionCode[0]}/matches?season=2021`,
-//   dataType: "json",
-//   type: "GET",
-// }).done(function (response) {
-//   const matchesList = response.matches;
-//   // Which Matchday is it?
-//   let matchDay = matchesList[0].season.currentMatchday;
-//   const allMatchDays = [...Array(matchDay + 1).keys()];
-//   const currentMatchday = matchesList.filter((match) =>
-//     match.matchday === matchDay ? match : null
-//   );
-
-//   const results = document.querySelector("#results");
-//   const selectorMatchday = document.querySelector("#currentMatchday");
-//   // Which competition are we currently checking
-//   const currentCompetition = response.competition.name;
-//   const competitionName = document.querySelector("#currentCompetition");
-//   currentMatchday.forEach((match) => {
-//     // Building the date
-//     const rawDate = new Date(match.utcDate);
-//     const matchDate = rawDate.getDate();
-//     const monthOptions = { month: "long" };
-//     const matchMonth = new Intl.DateTimeFormat("en-US", monthOptions).format(
-//       rawDate
-//     );
-//     const dayOptions = { weekday: "long" };
-//     const matchDay = new Intl.DateTimeFormat("en-US", dayOptions).format(
-//       rawDate
-//     );
-//     const matchHour = rawDate.getHours();
-//     const matchMinutes =
-//       (rawDate.getMinutes() < 10 ? "0" : "") + rawDate.getMinutes();
-//     const fullDate =
-//       matchDay +
-//       ", " +
-//       matchDate +
-//       " " +
-//       matchMonth +
-//       " at " +
-//       matchHour +
-//       ":" +
-//       matchMinutes;
-// const goals =
-//   // Check for match status and display the right info depending
-//   match.status === "FINISHED"
-//     ? match.score.fullTime.homeTeam + match.score.fullTime.awayTeam > 0
-//       ? `<h5>Yes</h5>`
-//       : `<h5 style="color: #FF4081;">No</h5>`
-//     : match.status === "CANCELLED"
-//     ? `<h5 style="text-decoration: line-through;">Cancelled</h5>`
-//     : match.status === "SCHEDULED"
-//     ? `<h5 style="line-height: 2rem;"><mark>SCHEDULED</mark></h5><div class="schedule-date">${fullDate} your timezone</div>`
-//     : `<h5"><mark>${match.status
-//         .replace("_", " ")
-//         .toUpperCase()}</mark></h5>`;
-// const teamNames = `<div class="match-card"><div class="flex-grow-1 team-names"><h3>${match.homeTeam.name}</h3> <strong>VS</strong> <h3>${match.awayTeam.name}</h3></div> <div class="text-center match-result"><h4 class="pt-3">Were there any goals:</h4><div class="results">${goals}</div></div></div>`;
-// results.insertAdjacentHTML("beforeend", teamNames);
-//   });
-//   // Will insert the match day number in the h2
-//   selectorMatchday.insertAdjacentText("afterbegin", matchDay);
-//   // Will insert the competition name below the h2
-//   competitionName.insertAdjacentText("afterbegin", currentCompetition);
-//   // lists all matchdays for the menu
-//   const menuMatchDays = document.getElementById("matchdays");
-//   allMatchDays.forEach((day) => {
-//     const dayNumber = `<option key=${day} value="${day}">${day}</option>`;
-//     menuMatchDays.insertAdjacentHTML("beforeend", dayNumber);
-//   });
-// });
-
-// return (
-//   <div>
-//     <h2 className="text-center pt-4 text-white">
-//       It is currently match day <span id="currentMatchday"></span>
-//     </h2>
-// <div className="text-center d-none">
-//   <label htmlFor="matchdays">
-//     Select another match day:
-//     <select id="matchdays"></select>
-//   </label>
-// </div>
-//     <p className="text-center text-white">
-//       You are checking the results of the{" "}
-//       <strong>
-//         <span id="currentCompetition"> </span>
-//       </strong>
-//       competition.
-//     </p>
-// <Link to="/">
-//   <button type="button" className="btn btn-light return">
-//     Return
-//   </button>
-// </Link>
-//     <div id="results"></div>
-//     <Link to="/">
-//       <button type="button" className="btn btn-light return mb-4">
-//         Return
-//       </button>
-//     </Link>
-//   </div>
-// );
