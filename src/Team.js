@@ -6,6 +6,7 @@ import midfielder from "./images/midfielder.webp";
 import goalkeeper from "./images/goalkeeper.webp";
 import defender from "./images/defender.webp";
 import undefined from "./images/undefined.webp";
+import coach from "./images/coach.webp";
 
 // Get t(\d+)(?!.*\d)
 const url = window.location.href;
@@ -218,7 +219,7 @@ const Team = () => {
           player.role === "COACH" ? (
             <div
               style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${goalkeeper})`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${coach})`,
               }}
               className="player-card"
               key={player.id}
