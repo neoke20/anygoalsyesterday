@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { Link } from "react-router-dom";
 import ball from "./football.png";
 import attacker from "./images/attacker.webp";
 import midfielder from "./images/midfielder.webp";
