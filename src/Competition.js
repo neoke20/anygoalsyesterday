@@ -120,12 +120,15 @@ const Competition = () => {
             </div>
           </div>
         ) : null}
+        <div><p>Match day: {matchDay}</p></div>
         {matches.map((match) =>
           match.status === "FINISHED" ? (
             // Check if there were goals, and displays yes if there were any
             match.score.fullTime.awayTeam + match.score.fullTime.homeTeam >
             0 ? (
               <div className="match-card-yes" key={match.id}>
+                {/* <h5 className="match-day">Day {match.matchday}</h5>
+                <h5 className="stage">{match.stage.replaceAll("_", " ")}</h5> */}
                 <div className="match-card-info">
                   <div className="flex-grow-1 team-names">
                     <a href={`team/${match.homeTeam.id}`}>
@@ -143,10 +146,6 @@ const Competition = () => {
                     </a>
                   </div>
                   <div className="text-center match-result">
-                    <h5 className="match-day">Day {match.matchday}</h5>
-                    <h5 className="stage">
-                      {match.stage.replaceAll("_", " ")}
-                    </h5>
                     <h4 className="pt-3">Were there any goals:</h4>
                     <h5>Yes</h5>
                   </div>
@@ -258,10 +257,6 @@ const Competition = () => {
                     </a>
                   </div>
                   <div className="text-center match-result">
-                    <h5 className="match-day">Day {match.matchday}</h5>
-                    <h5 className="stage">
-                      {match.stage.replaceAll("_", " ")}
-                    </h5>
                     <h4 className="pt-3">Were there any goals:</h4>
                     <h5 style={{ color: "#FF4081", textShadow: "2px 2px 4px rgba(0,0,0,0.4)" }}>No</h5>
                   </div>
@@ -352,9 +347,7 @@ const Competition = () => {
                 </a>
               </div>
               <div className="text-center match-result">
-                <h5 className="match-day">Day {match.matchday}</h5>
-                <h5 className="stage">{match.stage.replaceAll("_", " ")}</h5>
-                <h4 className="pt-5">Were there any goals:</h4>
+                <h4 className="">Were there any goals:</h4>
                 <h5 style={{ lineHeight: "2rem" }}>
                   <mark>Scheduled</mark>
                 </h5>
