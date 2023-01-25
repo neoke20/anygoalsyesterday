@@ -38,7 +38,8 @@ const Team = () => {
       requestOptions
     );
     const json = await res.json();
-    setTeam(json);
+    console.log(json)
+;    setTeam(json);
     setSquad(json.squad);
   }
   function playerAge(year, month, day) {

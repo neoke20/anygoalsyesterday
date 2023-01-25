@@ -275,17 +275,6 @@ h1 {
 }
 .match-card {
   background: rgb(47, 163, 141);
-  background-image: linear-gradient(
-    to right bottom,
-    #010202,
-    #132520,
-    #263d32,
-    #3c5343,
-    #6a866d
-  );
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
   position: relative;
   height: 100%;
   display: flex;
@@ -294,9 +283,7 @@ h1 {
   align-items: center;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   margin: 40px 120px;
-  background-color: $black;
   text-decoration: none;
   color: $primary-color;
   h5 {
