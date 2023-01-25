@@ -77,7 +77,7 @@ const Team = () => {
       <h3 className="m-4 position">Attackers</h3>
       <div className="player-grid">
         {squad.map((player) =>
-          player.position === "Offence" ? (
+          player.position === "Offence" && player.role === "PLAYER" ? (
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${attacker})`,
@@ -107,7 +107,7 @@ const Team = () => {
       <h3 className="m-4 position">Midfielders</h3>
       <div className="player-grid">
         {squad.map((player) =>
-          player.position === "Midfield" ? (
+          player.position === "Midfield" && player.role === "PLAYER" ? (
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${midfielder})`,
@@ -137,7 +137,7 @@ const Team = () => {
       <h3 className="m-4 position">Defenders</h3>
       <div className="player-grid">
         {squad.map((player) =>
-          player.position === "Defence" ? (
+          player.position === "Defence" && player.role === "PLAYER" ? (
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${defender})`,
@@ -167,7 +167,7 @@ const Team = () => {
       <h3 className="m-4 position">Goalkeepers</h3>
       <div className="player-grid">
         {squad.map((player) =>
-          player.position === "Goalkeeper" ? (
+          player.position === "Goalkeeper" && player.role === "PLAYER" ? (
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${goalkeeper})`,
@@ -196,7 +196,7 @@ const Team = () => {
       <h3 className="m-4 position">Undetermined position</h3>
       <div className="player-grid">
         {squad.map((player) =>
-          player.position === null ? (
+          player.position === null  && player.role === "PLAYER"? (
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${undefined})`,
@@ -208,6 +208,35 @@ const Team = () => {
               <div className="player-bday">
                 {player.dateOfBirth ? player.dateOfBirth.substr(0, 10) : null}
               </div>
+            </div>
+          ) : null
+        )}
+      </div>
+      <h3 className="m-4 position">Coach</h3>
+      <div className="player-grid">
+        {squad.map((player) =>
+          player.role === "COACH" ? (
+            <div
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${goalkeeper})`,
+              }}
+              className="player-card"
+              key={player.id}
+            >
+              <div className="player-name">{player.name}</div>
+              <div className="player-bday">
+                {player.dateOfBirth.substr(0, 10)}{" "}
+                <strong>
+                  (
+                  {playerAge(
+                    player.dateOfBirth.substr(0, 4),
+                    player.dateOfBirth.substr(5, 2),
+                    player.dateOfBirth.substr(8, 2)
+                  )}
+                  )
+                </strong>
+              </div>
+              <div className="player-nationality">({player.nationality})</div>
             </div>
           ) : null
         )}
