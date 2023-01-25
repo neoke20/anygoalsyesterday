@@ -263,7 +263,7 @@ const Competition = () => {
                       {match.stage.replaceAll("_", " ")}
                     </h5>
                     <h4 className="pt-3">Were there any goals:</h4>
-                    <h5 style={{ color: "#FF4081" }}>No</h5>
+                    <h5 style={{ color: "#FF4081", textShadow: "2px 2px 4px rgba(0,0,0,0.4)" }}>No</h5>
                   </div>
                 </div>
                 <div className="accordion" id={`accordionExample${match.id}`}>
