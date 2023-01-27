@@ -13,6 +13,11 @@ const Person = () => {
         navigate(-1);
     }
 
+  function dateConvert(date) {
+    date = date.replace(/-/g," ").split(" ")
+    const birthday = new Date(date[0], date[1] - 1, date[2])
+    return birthday.toDateString()
+  }
   useEffect(() => {
     requestMatches();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -35,7 +40,7 @@ const Person = () => {
       <button className="btn btn-light return" onClick={handleClick}>Return</button>
       <p className="text-center h1 text-white mt-5 detail-player-name">{person.name}</p>
       <div className="detail-player-info">
-        <p>{person.dateOfBirth}</p>
+        <p>{dateConvert(`${person.dateOfBirth}`)}</p>
         <p>{person.nationality}</p>
         <p>{person.position}</p>
         <p>{person.shirtNumber}</p>
