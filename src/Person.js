@@ -33,7 +33,13 @@ const Person = () => {
   return (
     <div>
       <button className="btn btn-light return" onClick={handleClick}>Return</button>
-      <p className="text-center h1 text-white mt-5">{person.name}</p>
+      <p className="text-center h1 text-white mt-5 detail-player-name">{person.name}</p>
+      <div className="detail-player-info">
+        <p>{person.dateOfBirth}</p>
+        <p>{person.nationality}</p>
+        <p>{person.position}</p>
+        <p>{person.shirtNumber}</p>
+      </div>
     </div>
   );
 };
