@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const url = window.location.href;
 const playerID = url.match(/(\d+)(?!.*\d)/);
 
 const Person = () => {
   const [person, setPerson] = useState([]);
+
+  const navigate = useNavigate();
+
+  function handleClick() {
+        navigate(-1);
+    }
 
   useEffect(() => {
     requestMatches();
@@ -25,6 +32,7 @@ const Person = () => {
   };
   return (
     <div>
+      <button className="btn btn-light return" onClick={handleClick}>Return</button>
       <p className="text-center h1 text-white mt-5">{person.name}</p>
     </div>
   );
