@@ -44,6 +44,7 @@ const Person = () => {
       <div className="detail-player-info d-flex flex-column text-center">
         {person.firstName && person.lastName ? (<p className="detail-card">Full name: {person.firstName} {person.lastName}</p>) : null}
         {person.dateOfBirth ? (<p className="detail-card">Date of birth: {dateConvert(`${person.dateOfBirth}`)}</p>) : null}
+        {person.nationality && person.nationality !== person.countryOfBirth ? (<p className="detail-card">Country of birth: {person.countryOfBirth}</p>) : null}
         {person.nationality ? (<p className="detail-card">Nationality: {person.nationality}</p>) : null}
         {person.position ? (<p className="detail-card">Position: {person.position}</p>) : null}
         {person.shirtNumber ? (<p className="detail-card">Shirt number: {person.shirtNumber}</p>) : null}
