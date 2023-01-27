@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { Link } from "react-router-dom";
 import ball from "./football.png";
 import attacker from "./images/attacker.webp";
 import midfielder from "./images/midfielder.webp";
@@ -92,7 +91,7 @@ const Team = () => {
               className="player-card"
               key={player.id}
             >
-              <div className="player-name">{player.name}</div>
+              <div className="player-name"><a href={`person/${player.id}`}>{player.name}</a></div>
               <div className="player-bday">
                 {player.dateOfBirth.substr(0, 10)}{" "}
                 <strong>
