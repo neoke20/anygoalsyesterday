@@ -49,6 +49,7 @@ const Person = () => {
         {person.position ? (<p className="detail-card">Position: {person.position}</p>) : null}
         {person.shirtNumber ? (<p className="detail-card">Shirt number: {person.shirtNumber}</p>) : null}
       </div>
+      <button className="btn btn-light return" onClick={handleClick}>Return</button>
     </div>
   );
 };
