@@ -28,7 +28,7 @@ const Person = () => {
       headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
     };
     const res = await fetch(
-      `http://api.football-data.org/v4/persons/${playerID[0]}`,
+      `https://api.football-data.org/v2/players/${playerID[0]}`,
       requestOptions
     ).catch(error => {
     console.log(error);
