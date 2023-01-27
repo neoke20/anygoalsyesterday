@@ -39,11 +39,12 @@ const Person = () => {
     <div>
       <button className="btn btn-light return" onClick={handleClick}>Return</button>
       <p className="text-center h1 text-white mt-5 detail-player-name">{person.name}</p>
-      <div className="detail-player-info">
-        <p>{dateConvert(`${person.dateOfBirth}`)}</p>
-        <p>{person.nationality}</p>
-        <p>{person.position}</p>
-        <p>{person.shirtNumber}</p>
+      <div className="detail-player-info d-flex flex-column text-center">
+        {person.firstName && person.lastName ? (<p className="detail-card">Full name: {person.firstName} {person.lastName}</p>) : null}
+        {person.dateOfBirth ? (<p className="detail-card">Date of birth: {dateConvert(`${person.dateOfBirth}`)}</p>) : null}
+        {person.nationality ? (<p className="detail-card">Nationality: {person.nationality}</p>) : null}
+        {person.position ? (<p className="detail-card">Position: {person.position}</p>) : null}
+        {person.shirtNumber ? (<p className="detail-card">Shirt number: {person.shirtNumber}</p>) : null}
       </div>
     </div>
   );
