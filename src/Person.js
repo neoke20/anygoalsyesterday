@@ -34,7 +34,6 @@ const Person = () => {
     console.log(error);
   });
     const json = await res.json();
-    console.log(json);
     setPerson(json);
   };
   return (
