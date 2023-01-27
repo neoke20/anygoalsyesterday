@@ -508,3 +508,20 @@ h1 {
     }
   }
 }
+.detail-player-name {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.detail-card {
+  width: 50%;
+  margin: 8px auto;
+  background-color: #E6E6E6;
+  padding: 12px;
+  border-radius: 4px;
+  @media (max-width: 500px) {
+    width: 80%;
+  }
+}
+.detail-card:last-child {
+  margin-bottom: 100%;
+}
