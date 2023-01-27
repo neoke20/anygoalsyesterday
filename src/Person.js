@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 
+const url = window.location.href;
+const playerID = url.match(/(\d+)(?!.*\d)/);
+
 const Person = () => {
   const [person, setPerson] = useState([]);
 
@@ -13,7 +16,7 @@ const Person = () => {
       headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
     };
     const res = await fetch(
-      `http://api.football-data.org/v4/persons/44`,
+      `http://api.football-data.org/v4/persons/${playerID[0]}`,
       requestOptions
     );
     const json = await res.json();
