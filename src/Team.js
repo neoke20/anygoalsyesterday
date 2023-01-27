@@ -37,8 +37,7 @@ const Team = () => {
       requestOptions
     );
     const json = await res.json();
-    console.log(json)
-;    setTeam(json);
+    setTeam(json);
     setSquad(json.squad);
   }
   function playerAge(year, month, day) {
@@ -83,6 +82,7 @@ const Team = () => {
       <div className="player-grid">
         {squad.map((player) =>
           player.position === "Offence" && player.role === "PLAYER" ? (
+            <a href={`person/${player.id}`} key={player.id}>
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${attacker})`,
@@ -91,7 +91,7 @@ const Team = () => {
               className="player-card"
               key={player.id}
             >
-              <div className="player-name"><a href={`person/${player.id}`}>{player.name}</a></div>
+              <div className="player-name">{player.name}</div>
               <div className="player-bday">
                 {player.dateOfBirth.substr(0, 10)}{" "}
                 <strong>
@@ -106,6 +106,7 @@ const Team = () => {
               </div>
               <div className="player-nationality">({player.nationality})</div>
             </div>
+            </a>
           ) : null
         )}
       </div>
@@ -113,6 +114,7 @@ const Team = () => {
       <div className="player-grid">
         {squad.map((player) =>
           player.position === "Midfield" && player.role === "PLAYER" ? (
+            <a href={`person/${player.id}`} key={player.id}>
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${midfielder})`,
@@ -136,6 +138,7 @@ const Team = () => {
               </div>
               <div className="player-nationality">({player.nationality})</div>
             </div>
+            </a>
           ) : null
         )}
       </div>
@@ -143,6 +146,7 @@ const Team = () => {
       <div className="player-grid">
         {squad.map((player) =>
           player.position === "Defence" && player.role === "PLAYER" ? (
+            <a href={`person/${player.id}`} key={player.id}>
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${defender})`,
@@ -166,6 +170,7 @@ const Team = () => {
               </div>
               <div className="player-nationality">({player.nationality})</div>
             </div>
+            </a>
           ) : null
         )}
       </div>
@@ -173,6 +178,7 @@ const Team = () => {
       <div className="player-grid">
         {squad.map((player) =>
           player.position === "Goalkeeper" && player.role === "PLAYER" ? (
+            <a href={`person/${player.id}`} key={player.id}>
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${goalkeeper})`,
@@ -195,6 +201,7 @@ const Team = () => {
               </div>
               <div className="player-nationality">({player.nationality})</div>
             </div>
+            </a>
           ) : null
         )}
       </div>
@@ -202,6 +209,7 @@ const Team = () => {
       <div className="player-grid">
         {squad.map((player) =>
           player.position === null  && player.role === "PLAYER"? (
+            <a href={`person/${player.id}`} key={player.id}>
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${undefined})`,
@@ -214,6 +222,7 @@ const Team = () => {
                 {player.dateOfBirth ? player.dateOfBirth.substr(0, 10) : null}
               </div>
             </div>
+            </a>
           ) : null
         )}
       </div>
@@ -221,6 +230,7 @@ const Team = () => {
       <div className="player-grid">
         {squad.map((player) =>
           player.role === "COACH" ? (
+            <a href={`person/${player.id}`} key={player.id}>
             <div
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${coach})`,
@@ -243,6 +253,7 @@ const Team = () => {
               </div>
               <div className="player-nationality">({player.nationality})</div>
             </div>
+            </a>
           ) : null
         )}
       </div>
