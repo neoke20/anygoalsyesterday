@@ -30,7 +30,9 @@ const Person = () => {
     const res = await fetch(
       `http://api.football-data.org/v4/persons/${playerID[0]}`,
       requestOptions
-    );
+    ).catch(error => {
+    console.log(error);
+  });
     const json = await res.json();
     console.log(json);
     setPerson(json);
