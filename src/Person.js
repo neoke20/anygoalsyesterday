@@ -44,6 +44,11 @@ const Person = () => {
       <button className="btn btn-light return" onClick={handleClick}>Return</button>
       <div className="d-flex text-center flex-column">
       <p className="h1 text-white mt-5 detail-player-name">{person.name}</p>
+        <div style={{
+                backgroundImage: `url(${jersey})`,
+              }}
+              className="jersey-img">
+        </div>
       </div>
       <div className="detail-player-info d-flex flex-column text-center">
         {person.firstName && person.lastName ? (<p className="detail-card">Full name: {person.firstName} {person.lastName}</p>) : null}
