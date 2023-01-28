@@ -48,6 +48,10 @@ const Person = () => {
                 backgroundImage: `url(${jersey})`,
               }}
               className="jersey-img">
+          <div>
+        {person.name ? (<p className="mb-0 pt-4 jersey-name">{person.name.split(" ").slice(-1)}</p>) : null}
+        {person.shirtNumber ? (<p className="jersey-number">{person.shirtNumber}</p>) : null}
+        </div>
         </div>
       </div>
       <div className="detail-player-info d-flex flex-column text-center">
