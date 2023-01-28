@@ -30,7 +30,7 @@ const Team = () => {
   async function requestTeamInfo() {
     const requestOptions = {
       method: "GET",
-      headers: { "X-Auth-Token": process.env.REACT_APP_API_TOKEN },
+      headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
     };
     const res = await fetch(
       `https://api.football-data.org/v2/teams/${teamID[0]}`,

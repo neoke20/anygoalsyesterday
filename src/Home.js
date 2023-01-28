@@ -13,7 +13,7 @@ const TARGETCOMPETITIONS = [
 
 const Home = () => {
   $.ajax({
-    headers: { "X-Auth-Token": process.env.REACT_APP_API_TOKEN },
+    headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
     url: `https://api.football-data.org/v2/competitions`,
     dataType: "json",
     type: "GET",
@@ -38,7 +38,7 @@ const Home = () => {
     <div>
       <div className="container text-center">
         <p className="text-white">
-          Test version: TL;DR: See if there were any goals in last nights' game without being
+          TL;DR: See if there were any goals in last nights' game without being
           spoiled of the final result
         </p>
         <div className="accordion" id="accordionExample">
