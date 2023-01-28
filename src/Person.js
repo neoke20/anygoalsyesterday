@@ -59,7 +59,6 @@ const Person = () => {
         {person.dateOfBirth ? (<p className="detail-card">Date of birth: {dateConvert(`${person.dateOfBirth}`)}</p>) : null}
         {person.nationality ? (<p className="detail-card">Nationality: {person.nationality}</p>) : null}
         {person.position ? (<p className="detail-card">Position: {person.position}</p>) : null}
-        {person.shirtNumber ? (<p className="detail-card">Shirt number: {person.shirtNumber}</p>) : null}
       </div>
       <button className="btn btn-light return" onClick={handleClick}>Return</button>
     </div>
