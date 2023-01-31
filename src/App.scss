@@ -511,6 +511,9 @@ h1 {
 .detail-player-name {
   text-transform: uppercase;
   margin-bottom: 20px;
+  img {
+    vertical-align: bottom !important;
+  }
 }
 .detail-card {
   width: 50%;
