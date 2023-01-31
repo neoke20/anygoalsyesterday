@@ -37,6 +37,7 @@ const Team = () => {
       requestOptions
     );
     const json = await res.json();
+    console.log(json);
     setTeam(json);
     setSquad(json.squad);
   }
@@ -125,14 +126,14 @@ const Team = () => {
             >
               <div className="player-name">{player.name}</div>
               <div className="player-bday">
-                {player.dateOfBirth.substr(0, 10)}{" "}
+                {player.dateOfBirth ? player.dateOfBirth.substr(0, 10) : null}{" "}
                 <strong>
                   (
-                  {playerAge(
+                  {player.dateOfBirth ? playerAge(
                     player.dateOfBirth.substr(0, 4),
                     player.dateOfBirth.substr(5, 2),
                     player.dateOfBirth.substr(8, 2)
-                  )}
+                  ) : null}
                   )
                 </strong>
               </div>
