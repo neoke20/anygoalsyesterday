@@ -8,6 +8,7 @@ const playerID = url.match(/(\d+)(?!.*\d)/);
 
 const Person = () => {
   const [person, setPerson] = useState([]);
+  const [crest, setCrest] = useState("");
 
   const navigate = useNavigate();
 
@@ -38,12 +39,13 @@ const Person = () => {
     const json = await res.json();
     console.log(json);
     setPerson(json);
+    setCrest(json.currentTeam.crest);
   };
   return (
     <div>
       <button className="btn btn-light return" onClick={handleClick}>Return</button>
       <div className="d-flex text-center flex-column">
-      <p className="h1 text-white mt-5 detail-player-name">{person.name}</p>
+      <p className="h1 text-white mt-5 detail-player-name">{crest ? (<img src={crest} alt="crest" width={40} />) : null}{person.name}</p>
         <div style={{
                 backgroundImage: `url(${jersey})`,
               }}
