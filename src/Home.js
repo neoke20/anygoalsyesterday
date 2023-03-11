@@ -1,5 +1,4 @@
 import $ from "jquery";
-import { API_KEY } from "./config";
 
 const TARGETCOMPETITIONS = [
   "FL1",
@@ -14,8 +13,8 @@ const TARGETCOMPETITIONS = [
 
 const Home = () => {
   $.ajax({
-    headers: { "X-Auth-Token": API_KEY },
-    url: `https://api.football-data.org/v4/competitions`,
+    headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
+    url: `https://api.football-data.org/v2/competitions`,
     dataType: "json",
     type: "GET",
   }).done(function (response) {
@@ -39,7 +38,7 @@ const Home = () => {
     <div>
       <div className="container text-center">
         <p className="text-white">
-          Too Long, Didn't Read: See if there were any goals in last nights' game without being
+          TL;DR: See if there were any goals in last nights' game without being
           spoiled of the final result
         </p>
         <div className="accordion" id="accordionExample">
