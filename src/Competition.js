@@ -25,8 +25,9 @@ const Competition = () => {
       method: "GET",
       headers: { "X-Auth-Token": API_KEY },
     };
+    const corsAnywhereUrl = "https://cors.bridged.cc/";
     const res = await fetch(
-      `https://api.football-data.org/v2/competitions/${competitionCode[0]}/matches?&matchday=${matchDay}`,
+      `${corsAnywhereUrl}https://api.football-data.org/v2/competitions/${competitionCode[0]}/matches?&matchday=${matchDay}`,
       requestOptions
     );
     const json = await res.json();
@@ -47,8 +48,9 @@ const Competition = () => {
       method: "GET",
       headers: { "X-Auth-Token": API_KEY },
     };
+    const corsAnywhereUrl = "https://cors.bridged.cc/";
     const res = await fetch(
-      `https://api.football-data.org/v2/competitions/${competitionCode[0]}/standings`,
+      `${corsAnywhereUrl}https://api.football-data.org/v2/competitions/${competitionCode[0]}/standings`,
       requestOptions
     );
     const json = await res.json();

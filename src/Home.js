@@ -13,9 +13,10 @@ const TARGETCOMPETITIONS = [
 ];
 
 const Home = () => {
+  const corsAnywhereUrl = "https://cors.bridged.cc/";
   $.ajax({
     headers: { "X-Auth-Token": API_KEY },
-    url: `https://api.football-data.org/v2/competitions`,
+    url: `${corsAnywhereUrl}https://api.football-data.org/v2/competitions`,
     dataType: "json",
     type: "GET",
   }).done(function (response) {

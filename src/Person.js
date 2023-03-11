@@ -31,8 +31,9 @@ const Person = () => {
       method: "GET",
       headers: { "X-Auth-Token": API_KEY },
     };
+    const corsAnywhereUrl = "https://cors.bridged.cc/";
     const res = await fetch(
-      `https://api.football-data.org/v4/persons/${playerID[0]}`,
+      `${corsAnywhereUrl}https://api.football-data.org/v4/persons/${playerID[0]}`,
       requestOptions
     ).catch(error => {
     console.log(error);
