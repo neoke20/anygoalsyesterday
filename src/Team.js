@@ -33,9 +33,8 @@ const Team = () => {
       method: "GET",
       headers: { "X-Auth-Token": API_KEY },
     };
-    const corsAnywhereUrl = "https://cors.bridged.cc/";
     const res = await fetch(
-      `${corsAnywhereUrl}https://api.football-data.org/v2/teams/${teamID[0]}`,
+      `https://api.football-data.org/v2/teams/${teamID[0]}`,
       requestOptions
     );
     const json = await res.json();
