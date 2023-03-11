@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { API_KEY } from "./apiconfig";
 import jersey from "./images/jersey.webp";
 
 
@@ -28,7 +29,7 @@ const Person = () => {
   async function requestMatches() {
     const requestOptions = {
       method: "GET",
-      headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
+      headers: { "X-Auth-Token": API_KEY },
     };
     const res = await fetch(
       `https://api.football-data.org/v4/persons/${playerID[0]}`,

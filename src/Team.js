@@ -7,6 +7,7 @@ import goalkeeper from "./images/goalkeeper.webp";
 import defender from "./images/defender.webp";
 import undefined from "./images/undefined.webp";
 import coach from "./images/coach.webp";
+import { API_KEY } from "./apiconfig";
 
 // Get t(\d+)(?!.*\d)
 const url = window.location.href;
@@ -30,7 +31,7 @@ const Team = () => {
   async function requestTeamInfo() {
     const requestOptions = {
       method: "GET",
-      headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
+      headers: { "X-Auth-Token": API_KEY },
     };
     const res = await fetch(
       `https://api.football-data.org/v2/teams/${teamID[0]}`,

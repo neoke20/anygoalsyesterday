@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { API_KEY } from "./apiconfig";
 
 // Get the url
 const url = window.location.href;
@@ -22,7 +23,7 @@ const Competition = () => {
   async function requestMatches() {
     const requestOptions = {
       method: "GET",
-      headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
+      headers: { "X-Auth-Token": API_KEY },
     };
     const res = await fetch(
       `https://api.football-data.org/v2/competitions/${competitionCode[0]}/matches?&matchday=${matchDay}`,
@@ -44,7 +45,7 @@ const Competition = () => {
   async function requestTable() {
     const requestOptions = {
       method: "GET",
-      headers: { "X-Auth-Token": "1d76b9d5235d490a8ff940e63e44f9f1" },
+      headers: { "X-Auth-Token": API_KEY },
     };
     const res = await fetch(
       `https://api.football-data.org/v2/competitions/${competitionCode[0]}/standings`,
