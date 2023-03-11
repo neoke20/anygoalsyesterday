@@ -39,7 +39,7 @@ const Home = () => {
     <div>
       <div className="container text-center">
         <p className="text-white">
-          TL;DR: See if there were any goals in last nights' game without being
+          Too Long, Didn't Read: See if there were any goals in last nights' game without being
           spoiled of the final result
         </p>
         <div className="accordion" id="accordionExample">
